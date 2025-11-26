@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - ALFA BOLSAS S.A.S | Soluciones Ecológicas</title>
+    <meta name="description" content="Conoce la historia de ALFA BOLSAS S.A.S, empresa colombiana dedicada a soluciones ecológicas de empaques desde 2020. Nuestra misión, visión y compromiso ambiental.">
+    <link rel="stylesheet" href="/frontend/assets/estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+    <!-- Header principal -->
+    <header class="site-header">
+        <!-- Barra superior de contacto -->
+        <div class="topbar">
+            <div class="container">
+                <div class="topbar__left">
+                    <p>Realizamos envíos a todo el país</p>
+                </div>
+                <div class="topbar__right">
+                    <a href="https://www.facebook.com/bolsasecologicasalfa" target="_blank" rel="noopener noreferrer" class="topbar__item" aria-label="Síguenos en Facebook">
+                        <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.instagram.com/bolsasecologicasalfa" target="_blank" rel="noopener noreferrer" class="topbar__item" aria-label="Síguenos en Instagram">
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://co.pinterest.com/bolsasecologicasalfa/" target="_blank" rel="noopener noreferrer" class="topbar__item" aria-label="Síguenos en Pinterest">
+                        <i class="fa-brands fa-pinterest" aria-hidden="true"></i>
+                    </a>
+                    <a href="mailto:alfabolsasbuc@gmail.com" class="topbar__item" aria-label="Envíanos un correo">
+                        <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Utilidades: logo + buscador + carrito + login -->
+        <div class="navbar__tools">
+            <!-- Logo de la empresa -->
+            <a href="/frontend/views/index.html" class="navbar__brand" aria-label="Inicio Alfa Bolsas S.A.S.">
+                <img src="/frontend/assets/img/logo-alfa-bolsas.webp" alt="Logo Alfa Bolsas S.A.S." width="100" height="100" loading="eager" />
+            </a>
+
+            <!-- Buscador -->
+            <form class="search" role="search" aria-label="Buscar productos">
+                <label for="search-input" class="sr-only">¿Qué bolsa ecológica estás buscando?</label>
+                <input id="search-input" type="search" placeholder="¿Qué bolsa ecológica estás buscando?" aria-label="Campo de búsqueda" />
+                <button type="submit" aria-label="Buscar productos">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                </button>
+            </form>
+
+            <!-- Login -->
+            <a href="/login" class="tool tool--login" aria-label="Iniciar sesión">
+                <i class="fa-regular fa-user" aria-hidden="true"></i>
+            </a>
+
+            <!-- Carrito -->
+            <a href="/carrito" class="tool tool--cart" aria-label="Ver carrito de compras">
+                <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                <span class="cart-count" aria-label="Productos en carrito">0</span>
+            </a>
+        </div>
+
+        <!-- Barra de navegación principal -->
+        <div class="container navbar__inner">
+            <div class="navbar">
+                <!-- Botón hamburguesa (móvil) -->
+                <button class="navbar__toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="primary-nav">
+                    <span class="navbar__toggle-bar"></span>
+                    <span class="navbar__toggle-bar"></span>
+                    <span class="navbar__toggle-bar"></span>
+                </button>
+
+                <!-- Navegación principal -->
+                <nav id="primary-nav" class="navbar__nav" aria-label="Navegación principal">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="/frontend/views/index.html" class="nav__link">Inicio</a>
+                        </li>
+                        <li class="nav__item has-submenu">
+                            <button class="nav__link nav__link--button" aria-expanded="false" aria-controls="submenu-productos">
+                                Productos
+                                <span class="icon-chevron" aria-hidden="true">▾</span>
+                            </button>
+                            <ul id="submenu-productos" class="submenu" role="menu" aria-label="Categorías de productos">
+                                <li role="none">
+                                    <a role="menuitem" href="/bolsas-papel" class="submenu__link">Bolsas de Papel</a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/bolsas-tela" class="submenu__link">Bolsas de Tela</a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/bolsas-plasticas" class="submenu__link">Bolsas Plásticas</a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/cajas" class="submenu__link">Cajas</a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/publicidad" class="submenu__link">Publicidad</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav__item">
+                            <a href="/frontend/views/nosotros.html" class="nav__link">Nosotros</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="/contactanos" class="nav__link">Contáctanos</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Botón de WhatsApp para cotizar -->
+            <a href="https://api.whatsapp.com/message/GVDKJSVF4L3GO1?autoload=1&app_absent=0" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="mi-boton-cotizar" 
+               aria-label="Cotizar productos por WhatsApp">
+                ¡Cotiza Ahora!
+            </a>
+        </div>
+    </header>
+
+<body>
+    <!-- Aquí va tu HEADER completo (el mismo del index.html) -->
+    <!-- ... header code ... -->
+
+    <!-- Contenido principal -->
+    <main class="nosotros-page">
+        <!-- Hero de Nosotros -->
+        <section class="nosotros-hero">
+            <div class="nosotros-hero__container">
+                <h1 class="nosotros-hero__title">NOSOTROS</h1>
+                <p class="nosotros-hero__subtitle">
+                    Soluciones ecológicas que impulsan tu marca
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección: Sobre Nosotros -->
+        <section class="nosotros-historia">
+            <div class="nosotros-historia__container">
+                <div class="nosotros-historia__content">
+                    <h2 class="nosotros-historia__title">Sobre nosotros</h2>
+                    
+                    <div class="nosotros-historia__text">
+                        <p>
+                            La historia de la empresa <strong>ALFA BOLSAS</strong> inició en el año 2020, dedicándose a la comercialización de bolsas, empaques y artículos de papelería. En sus primeras etapas, ALFA BOLSAS se destacó por su enfoque en la calidad de sus productos y el compromiso ambiental, dando soluciones a emprendedores y negocios locales que requerían soluciones personalizadas.
+                        </p>
+                        
+                        <p>
+                            Tras tres años de crecimiento y consolidación comercial, el emprendimiento evolucionó hacia una estructura más formal y robusta. En octubre de 2023 se constituye legalmente como <strong>ALFA BOLSAS S.A.S</strong>, dando a la empresa una etapa orientada a la expansión y al fortalecimiento institucional.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta con imagen decorativa (opcional) -->
+                <div class="nosotros-historia__image">
+                    <div class="nosotros-historia__image-wrapper">
+                        <img src="/frontend/assets/img/nosotros/historia-empresa.jpg" 
+                             alt="Historia ALFA BOLSAS - Soluciones ecológicas desde 2020" 
+                             width="500" 
+                             height="400"
+                             loading="eager" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Misión y Visión -->
+        <section class="nosotros-mision-vision">
+            <div class="nosotros-mision-vision__container">
+                <!-- Misión -->
+                <article class="mision-vision-card mision-vision-card--mision">
+                    <div class="mision-vision-card__icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="mision-vision-card__title">Misión.</h3>
+                    <p class="mision-vision-card__text">
+                        Crear, diseñar y promover soluciones ecológicas de empaques con propósito que generen valor. Fortaleciendo la identidad de las marcas. Reflejando un compromiso real con el cuidado del planeta y nuestros clientes.
+                    </p>
+                </article>
+
+                <!-- Visión -->
+                <article class="mision-vision-card mision-vision-card--vision">
+                    <div class="mision-vision-card__icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="mision-vision-card__title">Visión.</h3>
+                    <p class="mision-vision-card__text">
+                        Consolidarnos en el 2027 como la empresa referente en la fabricación de bolsas y empaques ecológicos a nivel nacional e internacional, promoviendo el crecimiento de marcas y emprendedores mediante productos que comunican identidad, cuidan el planeta y conectan con las personas. Nuestros pilares son la innovación, la responsabilidad y la atención personalizada.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sección: Valores (opcional - mejora adicional) -->
+        <section class="nosotros-valores">
+            <div class="nosotros-valores__container">
+                <h2 class="nosotros-valores__title">Nuestros Valores</h2>
+                <div class="nosotros-valores__grid">
+                    <div class="valor-card">
+                        <div class="valor-card__icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4 class="valor-card__title">Sostenibilidad</h4>
+                        <p class="valor-card__text">Compromiso con el medio ambiente en cada producto.</p>
+                    </div>
+
+                    <div class="valor-card">
+                        <div class="valor-card__icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4 class="valor-card__title">Calidad</h4>
+                        <p class="valor-card__text">Excelencia en materiales y procesos de fabricación.</p>
+                    </div>
+
+                    <div class="valor-card">
+                        <div class="valor-card__icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4 class="valor-card__title">Innovación</h4>
+                        <p class="valor-card__text">Soluciones creativas que impulsan tu marca.</p>
+                    </div>
+
+                    <div class="valor-card">
+                        <div class="valor-card__icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4 class="valor-card__title">Compromiso</h4>
+                        <p class="valor-card__text">Atención personalizada y servicio excepcional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="nosotros-cta">
+            <div class="nosotros-cta__container">
+                <h2 class="nosotros-cta__title">¿Listo para impulsar tu marca?</h2>
+                <p class="nosotros-cta__text">
+                    Contáctanos y descubre cómo nuestras soluciones ecológicas pueden transformar tu negocio.
+                </p>
+                <a href="https://api.whatsapp.com/message/GVDKJSVF4L3GO1?autoload=1&app_absent=0" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="nosotros-cta__btn">
+                    <i class="fab fa-whatsapp"></i> Cotiza Ahora
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Aquí va tu FOOTER completo (el mismo del index.html) -->
+    <!-- ... footer code ... -->
+
+    <script src="/frontend/public/main.js" defer></script>
+</body>
+</html>
