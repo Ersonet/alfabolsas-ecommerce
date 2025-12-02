@@ -5,11 +5,42 @@
   box-sizing: border-box;
 }
 
+:root {
+    /* 🎨 COLORES INSTITUCIONALES (Basado en el diseño adjunto) */
+    --color-primario: #EDB148; /*Amarillo Principal de AB */
+    --color-secundario: #FF6F00; /*Naranja secundario para botones y textos */
+    --color-fondo-claro: #ffffff; /* Fondo general del ecommerce */
+    --color-fondo-claro-secundario: #FFF8F0; /* Fondos secundarios (secciones) */
+    --color-texto: #1f1d1e; /* Color del texto principal */
+    --color-texto-claro: #777777; /* Texto auxiliar/descripciones */
+    --color-success: #3cb340; /* Para mensajes de éxito o ticks */
+    
+    /* 🖋️ TIPOGRAFÍA (Ajustar a la fuente real de ALFA BOLSAS) */
+    --font-family-principal: 'Poppins', sans-serif; /* Placeholder */
+    --font-size-base: 1rem; /* 16px */
+    --font-size-h1: 2.5rem;
+    --font-size-h3: 1.25rem;
+    
+    /* 📐 ESPACIAMIENTO Y DIMENSIONES */
+    --spacing-sm: 0.5rem; /* 8px */
+    --spacing-md: 1rem; /* 16px */
+    --spacing-lg: 2rem; /* 32px */
+    
+    /* 📦 SOMBRAS Y BORDES */
+    /* Vimos que las tarjetas tienen sombras ligeras y bordes suaves */
+    --shadow-ligera: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-media: 0 4px 8px rgba(0, 0, 0, 0.15);
+    --border-radius-base: 4px;
+}
+
+
+
+
 /* ===== Estilos globales ===== */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-family-principal);
   font-size: 14px;
-  color: #1f1d1e;
+  color: var(--color-texto);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -35,13 +66,13 @@ main {
 
 /* ===== Barra superior de contacto ===== */
 .topbar {
-  background-color: #EDB148;
+  background-color: var(--color-primario);
   font-size: 0.93rem;
   padding: 10px 0;
 }
 
 .topbar p {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-family-principal);
   font-weight: 500;
   font-style: italic;
 }
@@ -60,14 +91,14 @@ main {
 }
 
 .topbar__item {
-  color: #1f1d1e;
+  color: var(--color-texto);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .topbar__item:hover,
 .topbar__item:focus {
-  color: #fff;
+  color: var(--color-fondo-claro);
 }
 
 /* ===== Navbar principal ===== */
@@ -841,7 +872,7 @@ main {
 
 /* ===== SECCIÓN PROCESO DE PEDIDO ===== */
 .proceso-pedido {
-  background-color: #FFF8F0;
+  background-color: var(--color-fondo-claro-secundario);
   padding: 80px 0;
 }
 
@@ -854,7 +885,7 @@ main {
   text-align: center;
   font-size: 2rem;
   font-weight: 700;
-  color: #333;
+  color: var(--color-texto);
   margin-bottom: 60px;
   line-height: 1.3;
 }
@@ -2506,3 +2537,308 @@ main {
 }
 
 /* Final de los estilos para el sobre de burbuja */
+
+/*Inicio de los estilos para el formulario de contactanos*/
+
+.contact-section {
+  padding: 40px 20px;
+  background-color: #fff;
+  color: #333;
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #EDB148;
+}
+
+.contact-hours {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.contact-info p {
+  margin: 4px 0;
+  font-weight: 500;
+}
+
+.contact-form {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.contact-submit {
+  background-color: #EDB148;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 15px 23px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.contact-submit:hover {
+  background-color: #FFC300;
+}
+
+.contact-note {
+  font-size: 0.85rem;
+  margin-top: 10px;
+  color: #777;
+}
+
+/*Inicio de los estilos para productos de papel*/
+
+/* 2. Estos son los estilos para el layout general de la página de productos */
+
+.container {
+    /* Estructura básica de centrado, ajusta si ya tienes esta clase */
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.shop-container {
+    /* CSS GRID para el layout de 2 columnas */
+    display: grid;
+    /* La sidebar será 1/4 del ancho, el contenido 3/4 */
+    grid-template-columns: 1fr 3fr; 
+    gap: var(--spacing-lg); /* Espacio entre sidebar y grid de productos */
+    margin-top: var(--spacing-lg);
+}
+
+/* Manejo de Responsive: En pantallas pequeñas (móviles/tablets) */
+@media (max-width: 992px) {
+    .shop-container {
+        /* Se convierte en una sola columna */
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+}
+
+/* 3. Estos son los estilos para la barra lateral, el SIDEBAR */
+
+.shop-sidebar {
+    padding: var(--spacing-md);
+    background-color: var(--color-fondo-claro); /* Fondo ligeramente gris */
+    border-radius: var(--border-radius-base);
+}
+
+.filter-group {
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 1px solid #eee;
+    padding-bottom: var(--spacing-md);
+}
+
+.filter-group h3 {
+    font-size: var(--font-size-h3);
+    color: var(--color-texto);
+    margin-bottom: var(--spacing-sm);
+}
+
+.filter-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Estilo para el banner de oferta en el sidebar */
+.sidebar-banner {
+    margin-top: var(--spacing-lg);
+    text-align: center;
+}
+.sidebar-banner img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-base);
+}
+
+/* 4. Estos son los estilos para la rejilla de los productos y tarjetas */
+
+/* Configuración de la rejilla de 3 columnas */
+.product-grid {
+    display: grid;
+    /* 3 columnas de igual ancho, con espacio entre ellas */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: var(--spacing-lg);
+}
+
+/* Responsividad para la rejilla */
+@media (max-width: 1200px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+    }
+}
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* 1 columna en móviles */
+    }
+}
+
+/* Estilos de la Tarjeta de Producto (Card) */
+.product-card {
+    background-color: white;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-base);
+    box-shadow: var(--shadow-ligera); /* Usamos la variable de sombra */
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+    /* Efecto de 'lift' al pasar el mouse */
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-media); 
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-base);
+    margin-bottom: var(--spacing-md);
+}
+
+.product-card h4 {
+    font-size: var(--font-size-h3);
+    color: var(--color-texto);
+    margin-bottom: var(--spacing-sm);
+}
+
+.product-card .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primario); /* Precio destacado con color primario */
+    margin-bottom: var(--spacing-md);
+}
+
+/* Estilos de los botones dentro de la tarjeta (Ejemplo) */
+.product-card .actions button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: var(--border-radius-base);
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0 var(--spacing-sm);
+}
+
+/*Final de los estilos para productos de papel*/
+
+
+/* Final de los estilos para el formulario de contactanos */
+
+/*Estilos para la página en construcción de bolsas plásticas*/
+
+/* Variables de color de ALFA BOLSAS S.A.S. */
+.logo-placeholder {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+/* Estilos del Contador Regresivo */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+    padding: 15px 20px;
+    border-radius: 8px;
+    min-width: 80px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.countdown-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+/* Estilos del CTA (Call to Action) - Botón de WhatsApp */
+.cta-button {
+    display: inline-block;
+    background-color: #25D366; /* Color de WhatsApp */
+    color: var(--color-light);
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+
+.cta-button:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+}
+
+.cta-button i {
+    margin-right: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+    h1 {
+        font-size: 2rem;
+    }
+    .countdown {
+        gap: 10px;
+    }
+    .countdown-item {
+        padding: 10px 12px;
+        min-width: 60px;
+    }
+    .countdown-number {
+        font-size: 2rem;
+    }
+    .cta-button {
+        font-size: 1rem;
+        padding: 12px 25px;
+    }
+}
+
+/* Final de los estilos para la página en construcción de bolsas plásticas*/

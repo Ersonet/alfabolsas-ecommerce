@@ -96,6 +96,43 @@ if (miBoton) {
   });
 }
 
+//Inicio del Formulario de Contáctanos//
 
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector(".contact-form");
+
+  form.addEventListener("submit", function (e) {
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[0-9]{7,15}$/;
+
+    if (!emailRegex.test(email)) {
+      alert("Por favor ingresa un correo válido.");
+      e.preventDefault();
+      return;
+    }
+
+    if (!phoneRegex.test(phone)) {
+      alert("Por favor ingresa un número de teléfono válido (solo números, mínimo 7 dígitos).");
+      e.preventDefault();
+      return;
+    }
+
+    if (message.length < 10) {
+      alert("El mensaje debe tener al menos 10 caracteres.");
+      e.preventDefault();
+      return;
+    }
+
+    alert("Formulario validado correctamente. ¡Gracias por contactarnos!");
+    // Aquí podrías enviar los datos a backend cuando esté listo
+  });
+});
+
+
+//Final del formulario de Contáctanos//
 
 // Fin del archivo main.js
