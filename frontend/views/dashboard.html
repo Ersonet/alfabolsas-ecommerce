@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ALFA BOLSAS S.A.S.</title>
+    <link rel="stylesheet" href="../assets/dashboard.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <h1>ALFA BOLSAS</h1>
+            <p class="tagline">PERSONALIZAMOS TU MARCA</p>
+        </div>
+
+        <!-- Info del usuario -->
+        <div class="user-info">
+            <div class="user-avatar">
+                <span id="userInitials">JS</span>
+            </div>
+            <div class="user-details">
+                <p class="user-name" id="userName">Desarrollador</p>
+                <p class="user-email" id="userEmail">desarrollador@alfabolsas.com</p>
+            </div>
+        </div>
+
+        <!-- Menú de navegación -->
+        <nav class="nav-menu">
+            <a href="#resumen" class="nav-item active" data-section="resumen">
+                <span class="icon">📊</span>
+                <span>Resumen</span>
+            </a>
+            <a href="#productos" class="nav-item" data-section="productos">
+                <span class="icon">📦</span>
+                <span>Productos</span>
+            </a>
+            <a href="#pedidos" class="nav-item" data-section="pedidos">
+                <span class="icon">🛒</span>
+                <span>Pedidos</span>
+            </a>
+            <a href="#configuracion" class="nav-item" data-section="configuracion">
+                <span class="icon">⚙️</span>
+                <span>Configuración</span>
+            </a>
+        </nav>
+
+        <!-- Botón cerrar sesión -->
+        <button class="btn-logout" id="btnLogout">
+            <span class="icon">🚪</span>
+            <span>Cerrar Sesión</span>
+        </button>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <h2 id="pageTitle">Panel de Control</h2>
+            <div class="header-actions">
+                <span class="date" id="currentDate"></span>
+            </div>
+        </header>
+
+        <!-- Sección: Resumen -->
+        <section id="resumen" class="content-section active">
+            <div class="stats-grid">
+                <!-- Card: Total Productos -->
+                <div class="stat-card">
+                    <div class="stat-icon blue">📦</div>
+                    <div class="stat-info">
+                        <h3 id="totalProductos">0</h3>
+                        <p>Productos Activos</p>
+                    </div>
+                </div>
+
+                <!-- Card: Bajo Stock -->
+                <div class="stat-card">
+                    <div class="stat-icon orange">⚠️</div>
+                    <div class="stat-info">
+                        <h3 id="bajoStock">0</h3>
+                        <p>Productos Bajo Stock</p>
+                    </div>
+                </div>
+
+                <!-- Card: Productos Inactivos -->
+                <div class="stat-card">
+                    <div class="stat-icon red">❌</div>
+                    <div class="stat-info">
+                        <h3 id="productosInactivos">0</h3>
+                        <p>Productos Inactivos</p>
+                    </div>
+                </div>
+
+                <!-- Card: Actividad -->
+                <div class="stat-card">
+                    <div class="stat-icon green">✅</div>
+                    <div class="stat-info">
+                        <h3 id="actividadMes">0</h3>
+                        <p>Editados este mes</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Productos con bajo stock -->
+            <div class="section-card">
+                <h3>⚠️ Productos con Bajo Stock</h3>
+                <div id="listaBajoStock" class="table-container">
+                    <p class="loading">Cargando datos...</p>
+                </div>
+            </div>
+
+            <!-- Últimos productos editados -->
+            <div class="section-card">
+                <h3>🆕 Últimos Productos Editados</h3>
+                <div id="listaUltimosProductos" class="table-container">
+                    <p class="loading">Cargando datos...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Productos -->
+        <section id="productos" class="content-section">
+            <div class="section-header">
+                <h3>Gestión de Productos</h3>
+                <button class="btn-primary" id="btnNuevoProducto">
+                    + Nuevo Producto
+                </button>
+            </div>
+
+            <div class="section-card">
+                <p class="info-message">Módulo de productos en desarrollo...</p>
+            </div>
+        </section>
+
+        <!-- Sección: Pedidos (solo visualización) -->
+        <section id="pedidos" class="content-section">
+            <h3>Vista de Pedidos</h3>
+            <div class="section-card">
+                <p class="info-message">📋 Vista de solo lectura - Módulo en desarrollo</p>
+            </div>
+        </section>
+
+        <!-- Sección: Configuración -->
+        <section id="configuracion" class="content-section">
+            <h3>Configuración de Perfil</h3>
+            <div class="section-card">
+                <div class="form-group">
+                    <label>Nombre</label>
+                    <input type="text" id="configNombre" class="form-control" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="configEmail" class="form-control" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Rol</label>
+                    <input type="text" id="configRol" class="form-control" disabled>
+                </div>
+                <p class="info-message">⚠️ Módulo de cambio de contraseña en desarrollo</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="../public/dashboard.js"></script>
+</body>
+</html>

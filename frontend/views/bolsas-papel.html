@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somos tu solución en: Bolsas, Cajas y publicidad | ALFA BOLSAS</title>
+    <meta name="description" content="En ALFA BOLSAS, somos tu solución ecológica en bolsas de papel, tela, plástico biodegradable, sobres de papel, cajas y publicidad.">
+    <meta name="keywords" content="Bolsas de papel, Bolsas de tela, Bolsas de plástico biodegradable, Sobres de papel, Cajas, Publicidad, Soluciones ecológicas, ALFA BOLSAS, bolsas en bucaramanga, bolsas para personalizar, bolsas con mi logo, bolsas ecologicas en bucaramanga">
+    
+    <!-- Preconnect para optimizar carga de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="/frontend/assets/estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header principal -->
+    <header class="site-header">
+        <!-- Barra superior de contacto -->
+        <div class="topbar">
+            <div class="container">
+                <div class="topbar__left">
+                    <p>Realizamos envíos a todo el país</p>
+                </div>
+                <div class="topbar__right">
+                    <a href="https://www.facebook.com/bolsasecologicasalfa" target="_blank" rel="noopener noreferrer" class="topbar__item" aria-label="Síguenos en Facebook">
+                        <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.instagram.com/bolsasecologicasalfa" target="_blank" rel="noopener noreferrer" class="topbar__item" aria-label="Síguenos en Instagram">
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://co.pinterest.com/bolsasecologicasalfa/" target="_blank" rel="noopener noreferrer" class="topbar__item" aria-label="Síguenos en Pinterest">
+                        <i class="fa-brands fa-pinterest" aria-hidden="true"></i>
+                    </a>
+                    <a href="mailto:alfabolsasbuc@gmail.com" class="topbar__item" aria-label="Envíanos un correo">
+                        <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Utilidades: logo + buscador + carrito + login -->
+        <div class="navbar__tools">
+            <!-- Logo de la empresa -->
+            <a href="/frontend/views/index.html" class="navbar__brand" aria-label="Inicio Alfa Bolsas S.A.S.">
+                <img src="/frontend/assets/img/logo-alfa-bolsas.webp" alt="Logo Alfa Bolsas S.A.S." width="100" height="100" loading="eager" />
+            </a>
+
+            <!-- Buscador -->
+            <form class="search" role="search" aria-label="Buscar productos">
+                <label for="search-input" class="sr-only">¿Qué bolsa ecológica estás buscando?</label>
+                <input id="search-input" type="search" placeholder="¿Qué bolsa ecológica estás buscando?" aria-label="Campo de búsqueda" />
+                <button type="submit" aria-label="Buscar productos">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                </button>
+            </form>
+
+            <!-- Login -->
+            <a href="/login" class="tool tool--login" aria-label="Iniciar sesión">
+                <i class="fa-regular fa-user" aria-hidden="true"></i>
+            </a>
+
+            <!-- Carrito -->
+            <a href="/carrito" class="tool tool--cart" aria-label="Ver carrito de compras">
+                <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                <span class="cart-count" aria-label="Productos en carrito">0</span>
+            </a>
+        </div>
+
+        <!-- Barra de navegación principal -->
+        <div class="container navbar__inner">
+            <div class="navbar">
+                <!-- Botón hamburguesa (móvil) -->
+                <button class="navbar__toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="primary-nav">
+                    <span class="navbar__toggle-bar"></span>
+                    <span class="navbar__toggle-bar"></span>
+                    <span class="navbar__toggle-bar"></span>
+                </button>
+
+                <!-- Navegación principal -->
+                <nav id="primary-nav" class="navbar__nav" aria-label="Navegación principal">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="/frontend/views/index.html" class="nav__link">Inicio</a>
+                        </li>
+                        <li class="nav__item has-submenu">
+                            <button class="nav__link nav__link--button" aria-expanded="false" aria-controls="submenu-productos">
+                                Productos
+                                <span class="icon-chevron" aria-hidden="true">▾</span>
+                            </button>
+                            <ul id="submenu-productos" class="submenu" role="menu" aria-label="Categorías de productos">
+                                <li role="none">
+                                    <a role="menuitem" href="/frontend/views/bolsas-papel.html" class="submenu__link">Bolsas de Papel</a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/bolsas-tela" class="submenu__link">Bolsas de Tela</a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/bolsas-plasticas" class="submenu__link">Bolsas Plásticas</a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/cajas" class="submenu__link">Cajas</a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/publicidad" class="submenu__link">Publicidad</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav__item">
+                            <a href="/frontend/views/nosotros.html" class="nav__link">Nosotros</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="/frontend/views/contactanos.html" class="nav__link">Contáctanos</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Botón de WhatsApp para cotizar -->
+            <a href="https://api.whatsapp.com/message/GVDKJSVF4L3GO1?autoload=1&app_absent=0" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="mi-boton-cotizar" 
+               aria-label="Cotizar productos por WhatsApp">
+                ¡Cotiza Ahora!
+            </a>
+        </div>
+    </header>
+
+<!--Inicio de la página para productos de bolsas de papel-->
+
+<nav class="breadcrumbs" aria-label="breadcrumb">
+    <div class="container">
+        <a href="/">Inicio</a> / <a href="/productos">Productos</a> / <span>Bolsas de papel</span>
+    </div>
+</nav>
+
+<div class="shop-container container">
+    
+    <aside class="shop-sidebar">
+        
+        <div class="filter-group">
+            <h3>Tipo de producto</h3>
+            <ul class="filter-list">
+                <li><label><input type="checkbox" name="tipo" value="con-manija"> Con manija</label></li>
+                <li><label><input type="checkbox" name="tipo" value="manija-en-cinta"> Manija en cinta</label></li>
+                <li><label><input type="checkbox" name="tipo" value="troquelada"> Propalcote</label></li>
+                </ul>
+        </div>
+
+        <div class="filter-group">
+            <h3>Material</h3>
+            <ul class="filter-list">
+                <li><label><input type="checkbox" name="material" value="papel"> Papel</label></li>
+                <li><label><input type="checkbox" name="material" value="polipropileno"> Polipropileno</label></li>
+            </ul>
+        </div>
+
+        <div class="filter-group">
+            <h3>Color</h3>
+            <ul class="filter-list">
+                <li><label><input type="checkbox" name="color" value="blanco"> Blanco</label></li>
+                <li><label><input type="checkbox" name="color" value="negro"> Negro</label></li>
+                <li><label><input type="checkbox" name="color" value="marron"> Marrón</label></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-banner">
+            <img src="../assets/img/oferta-especial.jpg" alt="Oferta Especial Bolsas">
+        </div>
+    </aside>
+
+    <main class="shop-content">
+        
+        <div class="shop-header">
+            <h1>Bolsas de papel</h1>
+            <div class="sort-wrapper">
+                <label for="sort-select">Ordenar por:</label>
+                <select id="sort-select">
+                    <option value="relevancia">Relevancia</option>
+                    <option value="precio-asc">Menor Precio</option>
+                    <option value="precio-desc">Mayor Precio</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="product-grid" class="product-grid">
+        </div>
+
+    </main>
+</div>
+
+<!--Final de la página para productos de bolsas de papel-->
+
+<!--Inicio del Footer-->
+
+<!-- Footer principal -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <!-- Columna 1: Información de la empresa -->
+        <div class="footer-column footer-column--empresa">
+            <h3 class="footer-column__title">ALFA BOLSAS S.A.S</h3>
+            <p class="footer-empresa__nit">NIT: 901763591-3</p>
+            <p class="footer-empresa__direccion">
+                Avenida Quebrada Seca No. 33 - 44.<br>
+                Bucaramanga, Santander.
+            </p>
+        </div>
+
+        <!-- Separador vertical -->
+        <div class="footer-divider"></div>
+
+        <!-- Columna 2: Correo electrónico -->
+        <div class="footer-column footer-column--contacto">
+            <h4 class="footer-contacto__label">Correo Electrónico:</h4>
+            <a href="mailto:alfabolsasbuc@gmail.com" class="footer-contacto__email">
+                alfabolsasbuc@gmail.com
+            </a>
+        </div>
+
+        <!-- Separador vertical -->
+        <div class="footer-divider"></div>
+
+        <!-- Columna 3: Compra ahora -->
+        <div class="footer-column footer-column--compra">
+            <h3 class="footer-column__title">Compra ahora:</h3>
+            <p class="footer-compra__telefono">
+                <a href="tel:+573188637696">318 863 7696</a>
+            </p>
+            <p class="footer-compra__visita">
+                Agenda una visita:<br>
+                <span class="footer-compra__horario">3x9 0x9 x0x</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Sección de enlaces del footer -->
+    <div class="footer-links">
+        <div class="footer-links__container">
+            <!-- Productos -->
+            <div class="footer-links__column">
+                <h4 class="footer-links__title">Productos</h4>
+                <ul class="footer-links__list">
+                    <li><a href="/bolsas-papel">Bolsa Papel</a></li>
+                    <li><a href="/bolsas-tela">Bolsas Tela</a></li>
+                    <li><a href="/bolsas-plasticas">Bolsa Plástica</a></li>
+                    <li><a href="/cajas">Cajas</a></li>
+                    <li><a href="/publicidad">Publicidad</a></li>
+                </ul>
+            </div>
+
+            <!-- Nuestra Empresa -->
+            <div class="footer-links__column">
+                <h4 class="footer-links__title">Nuestra Empresa</h4>
+                <ul class="footer-links__list">
+                    <li><a href="/quienes-somos">¿Quiénes somos?</a></li>
+                    <li><a href="/punto-fisico">Punto Físico</a></li>
+                    <li><a href="/contactanos">Contáctanos</a></li>
+                </ul>
+            </div>
+
+            <!-- Nuestras Políticas -->
+            <div class="footer-links__column">
+                <h4 class="footer-links__title">Nuestras Políticas</h4>
+                <ul class="footer-links__list">
+                    <li><a href="/politicas-envio">Políticas de envío</a></li>
+                    <li><a href="/politicas-cambio">Políticas de cambio</a></li>
+                    <li><a href="/politica-privacidad">Política de privacidad</a></li>
+                    <li><a href="/terminos-condiciones">Términos y condiciones</a></li>
+                    <li><a href="/devuelve-pedido">Devuelve tu pedido</a></li>
+                    <li><a href="/politica-cookies">Política de cookies</a></li>
+                </ul>
+            </div>
+
+            <!-- Compra Online -->
+            <div class="footer-links__column">
+                <h4 class="footer-links__title">Compra Online</h4>
+                <ul class="footer-links__list">
+                    <li><a href="/medios-pago">Medios de pago</a></li>
+                    <li><a href="/seguridad">Seguridad</a></li>
+                    <li><a href="/entregas-devoluciones">Entregas y devoluciones</a></li>
+                    <li><a href="/ayuda">Ayuda</a></li>
+                </ul>
+                <div class="footer-contacto-adicional">
+                    <h5 class="footer-contacto-adicional__title">Contáctanos:</h5>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/bolsasecologicasalfa" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/bolsasecologicasalfa" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://co.pinterest.com/bolsasecologicasalfa/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+                            <i class="fa-brands fa-pinterest"></i>
+                        </a>
+                        <a href="mailto:alfabolsasbuc@gmail.com" aria-label="Correo">
+                            <i class="fa-regular fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rastreo de pedido -->
+            <div class="footer-links__column">
+                <h4 class="footer-links__title">Rastrea tu pedido</h4>
+                <ul class="footer-links__list">
+                    <li><a href="https://www.envia.co/rastreo" target="_blank" rel="noopener noreferrer">Envía</a></li>
+                    <li><a href="https://www.rapidisimo.com/rastreo" target="_blank" rel="noopener noreferrer">Inter rapidísimo</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra de copyright -->
+    <div class="footer-bottom">
+        <div class="footer-bottom__container">
+            <p class="footer-bottom__text">
+                Diseñada y desarrollada con 💛 por: 
+                <a href="https://www.linkedin.com/in/jefferson-serrano" target="_blank" rel="noopener noreferrer">
+                    <strong>Jefferson Serrano</strong>
+                </a>
+            </p>
+            <p class="footer-bottom__copyright">
+                © 2025 ALFA BOLSAS S.A.S. Todos los Derechos reservados
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!--Final del footer-->
+    </main>  
+
+    <!-- Scripts -->
+    <script src="/frontend/public/main.js" defer></script>
+    <script src="/frontend/public/productos-recomendados.js"></script>
+    <script src="/frontend/public/marcas-slider.js"></script>
+    <script src="/frontend/public/filtros.js"></script>
+    <script src="/frontend/public/productsData.js"></script>
+    <script type="module" src="/frontend/public/productPaperBags.js"></script>
+    <script src="/frontend/public/contactForm.js"></script>
+</body>
+</html>

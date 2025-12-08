@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somos tu solución en: Bolsas, Cajas y publicidad | ALFA BOLSAS</title>
+    <meta name="description" content="En ALFA BOLSAS, somos tu solución ecológica en bolsas de papel, tela, plástico biodegradable, sobres de papel, cajas y publicidad.">
+    <meta name="keywords" content="Bolsas de papel, Bolsas de tela, Bolsas de plástico biodegradable, Sobres de papel, Cajas, Publicidad, Soluciones ecológicas, ALFA BOLSAS, bolsas en bucaramanga, bolsas para personalizar, bolsas con mi logo, bolsas ecologicas en bucaramanga">
+    
+    <!-- Preconnect para optimizar carga de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/x-icon" href="/Frontend/assets/img/LOGO-AB-ECOMMERCE.ICO">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="/frontend/assets/estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Logo de la marca (usando un placeholder con el color primario) -->
+        <div class="logo-placeholder">ALFA</div>
+        
+        <h1>¡Estamos Renovando nuestro Catálogo!</h1>
+        <p>
+            Estamos trabajando arduamente para presentarte la nueva línea de **Bolsas Plásticas** con opciones más sostenibles y de alta calidad. 
+            Pronto podrás ver todos los detalles aquí.
+        </p>
+
+        <!-- Contador Regresivo Estético -->
+        <div id="countdown" class="countdown">
+            <div class="countdown-item">
+                <span id="days" class="countdown-number">00</span>
+                <span class="countdown-label">Días</span>
+            </div>
+            <div class="countdown-item">
+                <span id="hours" class="countdown-number">00</span>
+                <span class="countdown-label">Horas</span>
+            </div>
+            <div class="countdown-item">
+                <span id="minutes" class="countdown-number">00</span>
+                <span class="countdown-label">Minutos</span>
+            </div>
+            <div class="countdown-item">
+                <span id="seconds" class="countdown-number">00</span>
+                <span class="countdown-label">Segundos</span>
+            </div>
+        </div>
+
+        <p>
+            Mientras tanto, si necesitas una **cotización urgente** o tienes preguntas, ¡contáctanos directamente!
+        </p>
+
+        <!-- CTA Principal: Botón de WhatsApp -->
+        <a href="https://api.whatsapp.com/send?phone=573188637696&text=Hola!%20Estoy%20interesado%20en%20cotizar%20Bolsas%20Pl%C3%A1sticas.%20"
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="cta-button">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i> COTIZAR AHORA
+        </a>
+    </div>
+
+    <script>
+        function startCountdown() {
+            // Establece la fecha final para el contador (Ejemplo: 30 días a partir de ahora)
+            // Puedes cambiar esta fecha cuando quieras
+            const countdownDate = new Date();
+            // 30 días desde hoy
+            countdownDate.setDate(countdownDate.getDate() + 30); 
+            
+            const timer = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = countdownDate.getTime() - now;
+
+                // Cálculo de tiempo para días, horas, minutos y segundos
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Función auxiliar para añadir un cero si el número es menor a 10
+                const formatTime = (time) => String(time).padStart(2, '0');
+
+                // Mostrar el resultado en los elementos
+                document.getElementById("days").textContent = formatTime(days);
+                document.getElementById("hours").textContent = formatTime(hours);
+                document.getElementById("minutes").textContent = formatTime(minutes);
+                document.getElementById("seconds").textContent = formatTime(seconds);
+
+                // Si la cuenta regresiva termina
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById("countdown").innerHTML = "¡Catálogo Disponible!";
+                    document.getElementById("countdown").style.fontSize = "1.5rem";
+                    document.getElementById("countdown").style.fontWeight = "bold";
+                }
+            }, 1000);
+        }
+
+        window.onload = startCountdown;
+    </script>
+</body>
+</html>

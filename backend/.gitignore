@@ -1,0 +1,27 @@
+# ===== NODE MODULES =====
+node_modules/
+
+# ===== VARIABLES DE ENTORNO =====
+.env
+.env.local
+.env.*.local
+
+# ===== LOGS =====
+logs/
+*.log
+npm-debug.log*
+
+# ===== SISTEMA OPERATIVO =====
+.DS_Store
+Thumbs.db
+
+# ===== EDITORES =====
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== OTROS =====
+dist/
+build/
+.cache/

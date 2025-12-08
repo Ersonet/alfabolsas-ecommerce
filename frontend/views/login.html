@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - ALFA BOLSAS S.A.S.</title>
+    <link rel="stylesheet" href="../assets/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            <!-- Logo y encabezado -->
+            <div class="header">
+                <h1>ALFA BOLSAS S.A.S.</h1>
+                <p class="subtitle">Inicia sesión en tu cuenta</p>
+            </div>
+
+            <!-- Formulario de login -->
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="correo@ejemplo.com"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Ingresa tu contraseña"
+                        required
+                    >
+                </div>
+
+                <!-- Mensaje de respuesta -->
+                <div id="mensaje" class="mensaje"></div>
+
+                <!-- Botón de envío -->
+                <button type="submit" class="btn-submit">
+                    Iniciar Sesión
+                </button>
+            </form>
+
+            <!-- Link para registrarse -->
+            <div class="footer">
+                <p>¿No tienes una cuenta? <a href="register.html">Regístrate aquí</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../public/login.js"></script>
+</body>
+</html>
