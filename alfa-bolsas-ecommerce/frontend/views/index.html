@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somos tu solución en: Bolsas, Cajas y publicidad | ALFA BOLSAS</title>
+    <meta name="description" content="En ALFA BOLSAS, somos tu solución ecológica en bolsas de papel, tela, plástico biodegradable, sobres de papel, cajas y publicidad.">
+    <meta name="keywords" content="Bolsas de papel, Bolsas de tela, Bolsas de plástico biodegradable, Sobres de papel, Cajas, Publicidad, Soluciones ecológicas, ALFA BOLSAS, bolsas en bucaramanga, bolsas para personalizar, bolsas con mi logo, bolsas ecologicas en bucaramanga">
+    
+    <!-- Preconnect para optimizar carga de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/x-icon" href="/Frontend/assets/img/LOGO-AB-ECOMMERCE.ICO">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="/frontend/assets/estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header principal -->
+    <header class="site-header">
+        <!-- Barra superior de contacto -->
+        <div class="topbar">
+            <div class="container">
+                <div class="topbar__left">
+                    <p>Realizamos envíos a todo el país</p>
+                </div>
+                <div class="topbar__right">
+                    <a href="https://www.facebook.com/bolsasecologicasalfa" target="_blank" rel="noopener noreferrer" class="topbar__item" aria-label="Síguenos en Facebook">
+                        <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.instagram.com/bolsasecologicasalfa" target="_blank" rel="noopener noreferrer" class="topbar__item" aria-label="Síguenos en Instagram">
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://co.pinterest.com/bolsasecologicasalfa/" target="_blank" rel="noopener noreferrer" class="topbar__item" aria-label="Síguenos en Pinterest">
+                        <i class="fa-brands fa-pinterest" aria-hidden="true"></i>
+                    </a>
+                    <a href="mailto:alfabolsasbuc@gmail.com" class="topbar__item" aria-label="Envíanos un correo">
+                        <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Utilidades: logo + buscador + carrito + login -->
+        <div class="navbar__tools">
+            <!-- Logo de la empresa -->
+            <a href="/frontend/views/index.html" class="navbar__brand" aria-label="Inicio Alfa Bolsas S.A.S.">
+                <img src="/frontend/assets/img/logo-alfa-bolsas.webp" alt="Logo Alfa Bolsas S.A.S." width="100" height="100" loading="eager" />
+            </a>
+
+            <!-- Buscador -->
+            <form class="search" role="search" aria-label="Buscar productos">
+                <label for="search-input" class="sr-only">¿Qué bolsa ecológica estás buscando?</label>
+                <input id="search-input" type="search" placeholder="¿Qué bolsa ecológica estás buscando?" aria-label="Campo de búsqueda" />
+                <button type="submit" aria-label="Buscar productos">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                </button>
+            </form>
+
+            <!-- Login -->
+            <a href="/login" class="tool tool--login" aria-label="Iniciar sesión">
+                <i class="fa-regular fa-user" aria-hidden="true"></i>
+            </a>
+
+            <!-- Carrito -->
+            <a href="/carrito" class="tool tool--cart" aria-label="Ver carrito de compras">
+                <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                <span class="cart-count" aria-label="Productos en carrito">0</span>
+            </a>
+        </div>
+
+        <!-- Barra de navegación principal -->
+        <div class="container navbar__inner">
+            <div class="navbar">
+                <!-- Botón hamburguesa (móvil) -->
+                <button class="navbar__toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="primary-nav">
+                    <span class="navbar__toggle-bar"></span>
+                    <span class="navbar__toggle-bar"></span>
+                    <span class="navbar__toggle-bar"></span>
+                </button>
+
+                <!-- Navegación principal -->
+                <nav id="primary-nav" class="navbar__nav" aria-label="Navegación principal">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="/frontend/views/index.html" class="nav__link">Inicio</a>
+                        </li>
+                        <li class="nav__item has-submenu">
+                            <button class="nav__link nav__link--button" aria-expanded="false" aria-controls="submenu-productos">
+                                Productos
+                                <span class="icon-chevron" aria-hidden="true">▾</span>
+                            </button>
+                            <ul id="submenu-productos" class="submenu" role="menu" aria-label="Categorías de productos">
+                                <li role="none">
+                                    <a role="menuitem" href="/frontend/views/bolsas-papel.html" class="submenu__link">Bolsas de Papel</a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/bolsas-tela" class="submenu__link">Bolsas de Tela</a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/frontend/views/bolsas-plasticas.html" class="submenu__link">Bolsas Plásticas</a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/cajas" class="submenu__link">Cajas</a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/publicidad" class="submenu__link">Publicidad</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav__item">
+                            <a href="/frontend/views/nosotros.html" class="nav__link">Nosotros</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="/frontend/views/contactanos.html" class="nav__link">Contáctanos</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Botón de WhatsApp para cotizar -->
+            <a href="https://api.whatsapp.com/message/GVDKJSVF4L3GO1?autoload=1&app_absent=0" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="mi-boton-cotizar" 
+               aria-label="Cotizar productos por WhatsApp">
+                ¡Cotiza Ahora!
+            </a>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <!-- Sección de banners principales -->
+        <div class="contenedor-banners">
+            <!-- Banner ancho -->
+            <div class="banner-ancho">
+                <img src="/frontend/assets/img/alfabolsas-banner.png" 
+                     alt="Banner promocional: Nunca es tarde para mejorar nuestros hábitos" 
+                     width="875" 
+                     height="300"
+                     loading="eager" />
+            </div>
+
+            <!-- Banner cuadrado con producto -->
+            <div class="banner-cuadrado">
+                <p>Sobre Burbuja 17 x 22 Centímetros</p>
+                <img src="/frontend/assets/img/bolsa-burbuja-rosada.webp" 
+                     alt="Sobre de burbuja color rosado 17x22 cm" 
+                     width="300" 
+                     height="300"
+                     loading="lazy"/>
+                <button type="button" 
+                        onclick="location.href='/frontend/views/sobre-burbuja-rosado.html'" 
+                        aria-label="Añadir sobre burbuja rosado al carrito">
+                    Añadir al carrito
+                </button>
+            </div>
+        </div>
+
+        <!-- Sección de categorías -->
+        <section class="categories-section" aria-label="Categorías de productos">
+            <div class="categories-container">
+                <h2 class="categories-title">
+                    🛍️ Somos tu solución en: <span class="categories-title--highlight">Bolsas, Cajas y publicidad.</span>
+                </h2>
+                
+                <div class="categories-grid">
+                    <!-- Categoría 1: Bolsa Papel -->
+                    <a href="/frontend/views/productos-papel.html" class="category-card">
+                        <div class="category-card__image">
+                            <img src="/frontend/assets/img/bolsa-de-papel-numero-1-alfa-bolsas.webp" 
+                                 alt="Bolsas de papel kraft ecológicas" 
+                                 width="200" 
+                                 height="200"
+                                 loading="lazy" />
+                        </div>
+                        <h3 class="category-card__title">Bolsa Papel</h3>
+                    </a>
+
+                    <!-- Categoría 2: Bolsa Plástica -->
+                    <a href="/bolsas-plasticas" class="category-card">
+                        <div class="category-card__image">
+                            <img src="/frontend/assets/img/bolsa-plastica-biodegradable-alfa-bolsas.webp" 
+                                 alt="Bolsas plásticas biodegradables" 
+                                 width="200" 
+                                 height="200"
+                                 loading="lazy" />
+                        </div>
+                        <h3 class="category-card__title">Bolsa Plástica</h3>
+                    </a>
+
+                    <!-- Categoría 3: Bolsa Tela -->
+                    <a href="/bolsas-tela" class="category-card">
+                        <div class="category-card__image">
+                            <img src="/frontend/assets/img/bolsa-de-tela-color-verde-alfa-bolsas.webp" 
+                                 alt="Bolsas de tela reutilizables" 
+                                 width="200" 
+                                 height="200"
+                                 loading="lazy" />
+                        </div>
+                        <h3 class="category-card__title">Bolsa Tela</h3>
+                    </a>
+
+                    <!-- Categoría 4: Cajas -->
+                    <a href="/cajas" class="category-card">
+                        <div class="category-card__image">
+                            <img src="/frontend/assets/img/caja-tipo-baul-alfa-bolsas.webp" 
+                                 alt="Cajas para empaque personalizado" 
+                                 width="200" 
+                                 height="200"
+                                 loading="lazy" />
+                        </div>
+                        <h3 class="category-card__title">Cajas</h3>
+                    </a>
+
+                    <!-- Categoría 5: Publicidad -->
+                    <a href="/publicidad" class="category-card">
+                        <div class="category-card__image">
+                            <img src="/frontend/assets/img/tarjetas-de-presentacion-todo-lo-relacionado-con-publicidad-en-alfa-bolsas.webp"
+                                 alt="Servicios de publicidad y branding" 
+                                 width="200" 
+                                 height="200"
+                                 loading="lazy" />
+                        </div>
+                        <h3 class="category-card__title">Publicidad</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <div class="contenedor-banner-ancho">
+            <!-- Banner total del inicio-->
+            <div class="banner-total-home">
+                <img src="/frontend/assets/img/banner-total-alfa-bolsas.webp" 
+                     alt="En ALFA BOLSAS promovemos el uso de bolsas ecológicas"/>
+                <div class="tittle-banner-ancho"><h2>Somos Eco-Friendly ♻️</h2></div>
+                <div class="parrafo-banner-ancho">
+                    <p>Creemos en empacar con propósito.<br>Por eso, nuestras tintas son 100% a base de agua, libres de químicos contaminantes.</p>
+                    <p>Cada bolsa personalizada refleja nuestro compromiso con el planeta y con quienes eligen marcas conscientes.</p>
+                    <p>Este proceso garantiza una producción responsable y alineada con nuestros valores sostenibles.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Sección de productos recomendados -->
+        <section class="productos-recomendados" aria-label="Productos recomendados">
+            <div class="productos-recomendados__container">
+                <h2 class="productos-recomendados__title">
+                    Encuentra tu bolsa ideal e impulsa tu marca 🚀
+                </h2>
+        
+                <div class="productos-recomendados__grid" id="productos-grid">
+                <!-- Las tarjetas se generarán dinámicamente con JavaScript -->
+                </div>
+            </div>
+        </section>
+    <!-- Sección proceso de pedido -->
+<section class="proceso-pedido" aria-label="Cómo realizar tu pedido">
+    <div class="proceso-pedido__container">
+        <h2 class="proceso-pedido__title">
+            ¡Realizar tu pedido con nosotros es demasiado fácil!
+        </h2>
+        
+        <div class="proceso-pedido__grid">
+            <!-- Paso 1: Selección y abono inicial -->
+            <article class="proceso-paso">
+                <div class="proceso-paso__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="9" y1="13" x2="15" y2="13"></line>
+                        <line x1="9" y1="17" x2="15" y2="17"></line>
+                    </svg>
+                </div>
+                <h3 class="proceso-paso__title">Selección y abono inicial</h3>
+                <p class="proceso-paso__description">
+                    Explora nuestro catálogo y elige los productos que necesitas: bolsas, cajas o soluciones personalizadas. Solo necesitas realizar un abono inicial para activar tu pedido y comenzar el proceso de producción.
+                </p>
+            </article>
+
+            <!-- Paso 2: Validación del diseño -->
+            <article class="proceso-paso">
+                <div class="proceso-paso__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <polyline points="9 11 12 14 22 4"></polyline>
+                    </svg>
+                </div>
+                <h3 class="proceso-paso__title">Validación del diseño</h3>
+                <p class="proceso-paso__description">
+                    Nuestro equipo creará el diseño de tu empaque según tus preferencias. Podrás revisarlo, solicitar ajustes y aprobarlo antes de que pase a producción.<br>
+                    ¡Tu marca, tu estilo, tu impacto!
+                </p>
+            </article>
+
+            <!-- Paso 3: Producción y entrega -->
+            <article class="proceso-paso">
+                <div class="proceso-paso__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                        <path d="M12 6v6l4 2"></path>
+                        <rect x="8" y="14" width="8" height="6" rx="1"></rect>
+                    </svg>
+                </div>
+                <h3 class="proceso-paso__title">Producción y entrega</h3>
+                <p class="proceso-paso__description">
+                    Una vez aprobado el diseño, iniciamos la fabricación de tus empaques. Te los enviaremos directamente a tu domicilio, listos para representar tu marca con propósito.
+                </p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Sección marcas clientes -->
+<section class="marcas-clientes" aria-label="Marcas que confían en nosotros">
+    <div class="marcas-clientes__container">
+        <h2 class="marcas-clientes__title">
+            Marcas que confían en nuestro trabajo ✅
+        </h2>
+        
+        <!-- Slider de marcas -->
+        <div class="marcas-slider-wrapper">
+            <div class="marcas-slider" id="marcas-slider">
+                <!-- Logos se duplicarán automáticamente con JS para el efecto infinito -->
+                <div class="marcas-slider__track">
+                    <div class="marca-logo">
+                        <span class="marca-logo__text">Marca Increíble</span>
+                    </div>
+                    <div class="marca-logo">
+                        <span class="marca-logo__text">Marca Increíble</span>
+                    </div>
+                    <div class="marca-logo">
+                        <span class="marca-logo__text">Marca Increíble</span>
+                    </div>
+                    <div class="marca-logo">
+                        <span class="marca-logo__text">Marca Increíble</span>
+                    </div>
+                    <div class="marca-logo">
+                        <span class="marca-logo__text">Marca Increíble</span>
+                    </div>
+                    <div class="marca-logo">
+                        <span class="marca-logo__text">Marca Increíble</span>
+                    </div>
+                    <div class="marca-logo">
+                        <span class="marca-logo__text">Marca Increíble</span>
+                    </div>
+                    <div class="marca-logo">
+                        <span class="marca-logo__text">Marca Increíble</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Final de seccion de marcas que confian en nosotros-->
+
+<!--Inicio de seccion de las transportadoras aliadas-->
+
+<!-- Sección transportadoras -->
+<section class="transportadoras" aria-label="Aliados estratégicos de envío">
+    <div class="transportadoras__container">
+        <h2 class="transportadoras__title">
+            Hacemos envíos a toda Colombia
+        </h2>
+        <p class="transportadoras__subtitle">
+            Nuestros aliados estratégicos:
+        </p>
+        
+        <div class="transportadoras__grid">
+            <!-- Transportadora 1: Envia -->
+            <div class="transportadora-logo">
+                <img src="/frontend/assets/img/transportadoras/transportadora-envia-aliado-estrategico-para-alfa-bolsas.webp" 
+                     alt="Envia - Pasión por lo que hacemos" 
+                     width="200" 
+                     height="80"
+                     loading="lazy" />
+            </div>
+
+            <!-- Transportadora 2: Rapidísimo -->
+            <div class="transportadora-logo">
+                <img src="/frontend/assets/img/transportadoras/transportadora-interrapidisimo-aliado-estrategico-para-alfa-bolsas.webp" 
+                     alt="Rapidísimo" 
+                     width="200" 
+                     height="80"
+                     loading="lazy" />
+            </div>
+
+            <!-- Transportadora 3: Trasladarc -->
+            <div class="transportadora-logo">
+                <img src="/frontend/assets/img/transportadoras/transportadora-trasladarc-aliado-estrategico-para-alfa-bolsas.webp" 
+                     alt="Trasladarc - Transporte logística de Colombia SAS" 
+                     width="200" 
+                     height="80"
+                     loading="lazy" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Final de la seccion de las transportadoras aliadas-->
+
+<!--Inicio del Footer-->
+
+<!-- Footer principal -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <!-- Columna 1: Información de la empresa -->
+        <div class="footer-column footer-column--empresa">
+            <h3 class="footer-column__title">ALFA BOLSAS S.A.S</h3>
+            <p class="footer-empresa__nit">NIT: 901763591-3</p>
+            <p class="footer-empresa__direccion">
+                Avenida Quebrada Seca No. 33 - 44.<br>
+                Bucaramanga, Santander.
+            </p>
+        </div>
+
+        <!-- Separador vertical -->
+        <div class="footer-divider"></div>
+
+        <!-- Columna 2: Correo electrónico -->
+        <div class="footer-column footer-column--contacto">
+            <h4 class="footer-contacto__label">Correo Electrónico:</h4>
+            <a href="mailto:alfabolsasbuc@gmail.com" class="footer-contacto__email">
+                alfabolsasbuc@gmail.com
+            </a>
+        </div>
+
+        <!-- Separador vertical -->
+        <div class="footer-divider"></div>
+
+        <!-- Columna 3: Compra ahora -->
+        <div class="footer-column footer-column--compra">
+            <h3 class="footer-column__title">Compra ahora:</h3>
+            <p class="footer-compra__telefono">
+                <a href="tel:+573188637696">318 863 7696</a>
+            </p>
+            <p class="footer-compra__visita">
+                Agenda una visita:<br>
+                <span class="footer-compra__horario">3x9 0x9 x0x</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Sección de enlaces del footer -->
+    <div class="footer-links">
+        <div class="footer-links__container">
+            <!-- Productos -->
+            <div class="footer-links__column">
+                <h4 class="footer-links__title">Productos</h4>
+                <ul class="footer-links__list">
+                    <li><a href="/bolsas-papel">Bolsa Papel</a></li>
+                    <li><a href="/bolsas-tela">Bolsas Tela</a></li>
+                    <li><a href="/bolsas-plasticas">Bolsa Plástica</a></li>
+                    <li><a href="/cajas">Cajas</a></li>
+                    <li><a href="/publicidad">Publicidad</a></li>
+                </ul>
+            </div>
+
+            <!-- Nuestra Empresa -->
+            <div class="footer-links__column">
+                <h4 class="footer-links__title">Nuestra Empresa</h4>
+                <ul class="footer-links__list">
+                    <li><a href="/quienes-somos">¿Quiénes somos?</a></li>
+                    <li><a href="/punto-fisico">Punto Físico</a></li>
+                    <li><a href="/contactanos">Contáctanos</a></li>
+                </ul>
+            </div>
+
+            <!-- Nuestras Políticas -->
+            <div class="footer-links__column">
+                <h4 class="footer-links__title">Nuestras Políticas</h4>
+                <ul class="footer-links__list">
+                    <li><a href="/politicas-envio">Políticas de envío</a></li>
+                    <li><a href="/politicas-cambio">Políticas de cambio</a></li>
+                    <li><a href="/politica-privacidad">Política de privacidad</a></li>
+                    <li><a href="/terminos-condiciones">Términos y condiciones</a></li>
+                    <li><a href="/devuelve-pedido">Devuelve tu pedido</a></li>
+                    <li><a href="/politica-cookies">Política de cookies</a></li>
+                </ul>
+            </div>
+
+            <!-- Compra Online -->
+            <div class="footer-links__column">
+                <h4 class="footer-links__title">Compra Online</h4>
+                <ul class="footer-links__list">
+                    <li><a href="/medios-pago">Medios de pago</a></li>
+                    <li><a href="/seguridad">Seguridad</a></li>
+                    <li><a href="/entregas-devoluciones">Entregas y devoluciones</a></li>
+                    <li><a href="/ayuda">Ayuda</a></li>
+                </ul>
+                <div class="footer-contacto-adicional">
+                    <h5 class="footer-contacto-adicional__title">Contáctanos:</h5>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/bolsasecologicasalfa" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/bolsasecologicasalfa" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://co.pinterest.com/bolsasecologicasalfa/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+                            <i class="fa-brands fa-pinterest"></i>
+                        </a>
+                        <a href="mailto:alfabolsasbuc@gmail.com" aria-label="Correo">
+                            <i class="fa-regular fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rastreo de pedido -->
+            <div class="footer-links__column">
+                <h4 class="footer-links__title">Rastrea tu pedido</h4>
+                <ul class="footer-links__list">
+                    <li><a href="https://www.envia.co/rastreo" target="_blank" rel="noopener noreferrer">Envía</a></li>
+                    <li><a href="https://www.rapidisimo.com/rastreo" target="_blank" rel="noopener noreferrer">Inter rapidísimo</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra de copyright -->
+    <div class="footer-bottom">
+        <div class="footer-bottom__container">
+            <p class="footer-bottom__text">
+                Diseñada y desarrollada con 💛 por: 
+                <a href="https://www.linkedin.com/in/jefferson-serrano" target="_blank" rel="noopener noreferrer">
+                    <strong>Jefferson Serrano</strong>
+                </a>
+            </p>
+            <p class="footer-bottom__copyright">
+                © 2025 ALFA BOLSAS S.A.S. Todos los Derechos reservados
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!--Final del footer-->
+    </main>
+
+    <!-- Scripts -->
+    <script src="/frontend/public/main.js" defer></script>
+    <script src="/frontend/public/productos-recomendados.js"></script>
+    <script src="/frontend/public/marcas-slider.js"></script>
+    <script src="/frontend/public/filtros.js"></script>
+</body>
+</html>
