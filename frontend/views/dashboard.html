@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - ALFA BOLSAS S.A.S.</title>
-    <link rel="stylesheet" href="../assets/dashboard.css">
+    <link rel="stylesheet" href="/frontend/assets/dashboard.css">
 </head>
 <body>
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="logo">
-            <h1>ALFA BOLSAS</h1>
-            <p class="tagline">PERSONALIZAMOS TU MARCA</p>
+            <a href="/frontend/views/index.html" class="navbar__brand" aria-label="Inicio Alfa Bolsas S.A.S.">
+            <img src="/frontend/assets/img/logo-alfa-bolsas.webp" alt="Logo Alfa Bolsas S.A.S." width="100" height="100" loading="eager" />
+        </a>
         </div>
 
         <!-- Info del usuario -->
@@ -128,12 +129,264 @@
                 </button>
             </div>
 
-            <div class="section-card">
-                <p class="info-message">Módulo de productos en desarrollo...</p>
+            <!-- Listado de productos -->
+            <div id="listaProductos" class="section-card">
+                <div class="productos-filtros">
+                    <input type="text" id="buscarProducto" placeholder="Buscar producto..." class="form-control">
+                    <select id="filtroCategoria" class="form-control">
+                        <option value="">Todas las categorías</option>
+                        <option value="PAPEL">PAPEL</option>
+                        <option value="TELA">TELA</option>
+                        <option value="PLÁSTICA">PLÁSTICA</option>
+                        <option value="CAJAS">CAJAS</option>
+                        <option value="PUBLICIDAD">PUBLICIDAD</option>
+                    </select>
+                    <select id="filtroEstado" class="form-control">
+                        <option value="">Todos los estados</option>
+                        <option value="true">Activos</option>
+                        <option value="false">Inactivos</option>
+                    </select>
+                </div>
+                <div id="tablaProductos" class="table-container">
+                    <p class="loading">Cargando productos...</p>
+                </div>
+            </div>
+
+            <!-- Modal: Crear/Editar Producto -->
+            <div id="modalProducto" class="modal">
+                <div class="modal-content modal-large">
+                    <div class="modal-header">
+                        <h3 id="modalTitulo">Nuevo Producto</h3>
+                        <button class="btn-close" id="btnCerrarModal">&times;</button>
+                    </div>
+                    
+                    <form id="formProducto" class="modal-body">
+                        <!-- Información básica -->
+                        <div class="form-section">
+                            <h4>📋 Información Básica</h4>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Nombre del Producto *</label>
+                                    <input type="text" id="prodNombre" class="form-control" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Categoría *</label>
+                                    <select id="prodCategoria" class="form-control" required>
+                                        <option value="">Seleccionar...</option>
+                                        <option value="PAPEL">PAPEL</option>
+                                        <option value="TELA">TELA</option>
+                                        <option value="PLÁSTICA">PLÁSTICA</option>
+                                        <option value="CAJAS">CAJAS</option>
+                                        <option value="PUBLICIDAD">PUBLICIDAD</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Descripción *</label>
+                                <textarea id="prodDescripcion" class="form-control" rows="3" required></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Campos específicos para PAPEL -->
+                        <div id="camposPapel" class="form-section" style="display: none;">
+                            <h4>📄 Especificaciones - Bolsas de Papel</h4>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Tipo de Producto *</label>
+                                    <select id="prodTipoProducto" class="form-control">
+                                        <option value="">Seleccionar tipo...</option>
+                                        <option value="Manija">Manija</option>
+                                        <option value="Manija con cinta">Manija con cinta</option>
+                                        <option value="Propacolte">Propacolte</option>
+                                        <option value="Sin manija kraft con fondo cuadrado (FC)">Sin manija kraft con fondo cuadrado (FC)</option>
+                                        <option value="Sin manija kraft con fondo en V (FV)">Sin manija kraft con fondo en V (FV)</option>
+                                        <option value="Sin manija blanca con fondo en V (FV)">Sin manija blanca con fondo en V (FV)</option>
+                                        <option value="Sobre Papel">Sobre Papel</option>
+                                        <option value="Porta cubiertos">Porta cubiertos</option>
+                                        <option value="Hamburguesa">Hamburguesa</option>
+                                        <option value="Papitas">Papitas</option>
+                                        <option value="Ventana Ziplock">Ventana Ziplock</option>
+                                        <option value="Vino">Vino</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Medida *</label>
+                                    <input type="text" id="prodMedida" class="form-control" placeholder="Ej: 20x30x10 cm">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Color *</label>
+                                    <input type="text" id="prodColor" class="form-control" placeholder="Ej: Blanco, Kraft">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Código sin logo</label>
+                                    <input type="text" id="prodCodigoSinLogo" class="form-control" placeholder="Ej: BPK-001">
+                                </div>
+                            </div>
+
+                            <!-- Precios sin logo -->
+                            <div class="precio-grupo">
+                                <h5>💵 Precios sin logo (por unidad)</h5>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>x20 unidades</label>
+                                        <input type="number" id="precioSinLogo20" class="form-control" step="0.01" placeholder="0.00">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>x100 unidades</label>
+                                        <input type="number" id="precioSinLogo100" class="form-control" step="0.01" placeholder="0.00">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>x1000 unidades</label>
+                                        <input type="number" id="precioSinLogo1000" class="form-control" step="0.01" placeholder="0.00">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Precios con logo -->
+                            <div class="precio-grupo">
+                                <h5>🎨 Precios con logo a 1 tinta (por unidad)</h5>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>x100 unidades</label>
+                                        <input type="number" id="precioConLogo100" class="form-control" step="0.01" placeholder="0.00">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>x300 unidades</label>
+                                        <input type="number" id="precioConLogo300" class="form-control" step="0.01" placeholder="0.00">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>x500 unidades</label>
+                                        <input type="number" id="precioConLogo500" class="form-control" step="0.01" placeholder="0.00">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>x1000 unidades</label>
+                                        <input type="number" id="precioConLogo1000" class="form-control" step="0.01" placeholder="0.00">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Campos para otras categorías -->
+                        <div id="camposOtras" class="form-section" style="display: none;">
+                            <h4>📐 Especificaciones Técnicas</h4>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Medidas (ej: 20x30x10 cm)</label>
+                                    <input type="text" id="prodMedidas" class="form-control">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Material</label>
+                                    <input type="text" id="prodMaterial" class="form-control">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label>Capacidad (ej: 5kg)</label>
+                                    <input type="text" id="prodCapacidad" class="form-control">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Color / Acabado</label>
+                                <input type="text" id="prodColorOtras" class="form-control">
+                            </div>
+
+                            <!-- Precios -->
+                            <div class="form-section">
+                                <h4>💰 Precios</h4>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Precio Base (sin logo) *</label>
+                                        <input type="number" id="prodPrecioBase" class="form-control" min="0" step="0.01">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Precio con Logo</label>
+                                        <input type="number" id="prodPrecioLogo" class="form-control" min="0" step="0.01">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stock (común para todas) -->
+                        <div class="form-section">
+                            <h4>📦 Stock</h4>
+                            <div class="form-group">
+                                <label>Stock Actual *</label>
+                                <input type="number" id="prodStock" class="form-control" min="0" required>
+                            </div>
+                        </div>
+
+                        <!-- Imágenes y configuración -->
+                        <div class="form-section">
+                            <h4>🖼️ Imágenes y Configuración</h4>
+                            
+                            <div class="form-group">
+                                <label>Imagen Principal *</label>
+                                <input type="file" id="prodImagenArchivo" class="form-control" accept="image/*">
+                                <small class="form-text">Formatos aceptados: JPG, PNG, WEBP (máx. 5MB)</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>O ingresar URL de Imagen (opcional)</label>
+                                <input type="url" id="prodImagenPrincipal" class="form-control" placeholder="https://ejemplo.com/imagen.jpg">
+                                <small class="form-text">Si subes un archivo, este tendrá prioridad sobre la URL</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Imágenes Adicionales</label>
+                                <input type="file" id="prodImagenesArchivos" class="form-control" accept="image/*" multiple>
+                                <small class="form-text">Puedes seleccionar múltiples imágenes</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>O URLs adicionales (separadas por coma)</label>
+                                <input type="text" id="prodImagenesAdicionales" class="form-control" placeholder="url1, url2, url3">
+                            </div>
+                            
+                            <!-- Preview de imágenes -->
+                            <div id="imagenesPreview" class="imagenes-preview"></div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="prodActivo" checked>
+                                        <span>Producto Activo</span>
+                                    </label>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="prodDestacado">
+                                        <span>Producto Destacado</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="hidden" id="prodId">
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn-secondary" id="btnCancelar">Cancelar</button>
+                            <button type="submit" class="btn-primary" id="btnGuardarProducto">Guardar Producto</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
 
-        <!-- Sección: Pedidos (solo visualización) -->
+        <!-- Sección: Pedidos -->
         <section id="pedidos" class="content-section">
             <h3>Vista de Pedidos</h3>
             <div class="section-card">
@@ -162,6 +415,60 @@
         </section>
     </main>
 
-    <script src="../public/dashboard.js"></script>
+    <script src="/frontend/public/dashboard.js"></script>
+    <script src="/frontend/public/productos.js"></script>
+
+    <style>
+    .imagenes-preview {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+        flex-wrap: wrap;
+    }
+    
+    .preview-item {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 2px solid #e0e0e0;
+    }
+    
+    .preview-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .preview-item .remove-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: rgba(255, 0, 0, 0.8);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .preview-item .remove-btn:hover {
+        background: rgba(255, 0, 0, 1);
+    }
+    
+    .form-text {
+        display: block;
+        margin-top: 5px;
+        font-size: 12px;
+        color: #666;
+    }
+    </style>
 </body>
 </html>

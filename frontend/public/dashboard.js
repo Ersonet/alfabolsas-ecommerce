@@ -16,6 +16,18 @@ document.addEventListener('DOMContentLoaded', () => {
     configurarNavegacion();
     configurarCerrarSesion();
     mostrarFechaActual();
+    
+    // Cargar módulo de productos al cambiar a esa sección
+    const navProductos = document.querySelector('[data-section="productos"]');
+    if (navProductos) {
+        navProductos.addEventListener('click', () => {
+            setTimeout(() => {
+                if (typeof inicializarProductos === 'function') {
+                    inicializarProductos();
+                }
+            }, 100);
+        });
+    }
 });
 
 // ===== CARGAR DATOS DEL USUARIO =====
@@ -229,8 +241,6 @@ function mostrarFechaActual() {
 }
 
 // ===== BOTONES DE ACCIONES =====
-document.getElementById('btnNuevoProducto')?.addEventListener('click', () => {
-    alert('📦 Módulo de crear producto en desarrollo...');
-});
+// Botón nuevo producto se maneja en productos.js
 
 console.log('✅ Dashboard inicializado correctamente');

@@ -396,3 +396,265 @@ th {
         grid-template-columns: 1fr;
     }
 }
+
+/* ===== MÓDULO DE PRODUCTOS ===== */
+.productos-filtros {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.form-control-sm {
+    padding: 8px 12px;
+    font-size: 13px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: var(--white);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-large {
+    max-width: 900px;
+}
+
+.modal-header {
+    padding: 25px 30px;
+    border-bottom: 2px solid var(--bg-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: var(--black);
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: var(--gray-medium);
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    line-height: 1;
+    transition: all 0.3s ease;
+}
+
+.btn-close:hover {
+    color: var(--black);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.modal-footer {
+    padding: 20px 30px;
+    border-top: 2px solid var(--bg-light);
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+/* Secciones del formulario */
+.form-section {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid var(--bg-light);
+}
+
+.form-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.form-section h4 {
+    color: var(--black);
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Checkbox */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Precios por rangos */
+.precio-rangos {
+    background: var(--bg-light);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.precio-rangos > label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.rango-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+/* Botones secundarios */
+.btn-secondary {
+    background: var(--gray-light);
+    color: var(--gray-dark);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: var(--gray-medium);
+    color: var(--white);
+}
+
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 13px;
+}
+
+/* Acciones de tabla */
+.btn-action {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-edit {
+    background: var(--info);
+    color: var(--white);
+}
+
+.btn-edit:hover {
+    background: #1976D2;
+}
+
+.btn-delete {
+    background: var(--danger);
+    color: var(--white);
+}
+
+.btn-delete:hover {
+    background: #D32F2F;
+}
+
+.btn-toggle {
+    background: var(--warning);
+    color: var(--white);
+}
+
+.btn-toggle:hover {
+    background: #F57C00;
+}
+
+/* Estados */
+.badge {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge-success {
+    background: #E8F5E9;
+    color: #2E7D32;
+}
+
+.badge-danger {
+    background: #FFEBEE;
+    color: #C62828;
+}
+
+.badge-warning {
+    background: #FFF3E0;
+    color: #E65100;
+}
+
+/* Responsive para modal */
+@media (max-width: 768px) {
+    .modal-content {
+        max-width: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .rango-item {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .productos-filtros {
+        grid-template-columns: 1fr;
+    }
+}

@@ -8,7 +8,7 @@ export const products = [
         id: 1,
         name: "Bolsa de papel Kraft con Manija #0",
         price: 55000,
-        image: "../public/img/bolsa-kraft-manija.jpg", // AJUSTA ESTA RUTA DE IMAGEN
+        image: "/frontend/assets/img/bolsas-papel/bolsa-de-papel-numero-0-kraft-blanco-alfa-bolsas.png", // AJUSTA ESTA RUTA DE IMAGEN
         tipo: "con-manija",
         material: "papel",
         color: "marron",
@@ -19,7 +19,7 @@ export const products = [
         id: 2,
         name: "Bolsa de Lujo Troquelada",
         price: 485000,
-        image: "../public/img/bolsa-lujo-blanca.jpg", // AJUSTA ESTA RUTA DE IMAGEN
+        image: "/frontend/assets/img/bolsas-papel/bolsa-de-papel-numero-1-kraft-marron-alfa-bolsas.png", // AJUSTA ESTA RUTA DE IMAGEN
         type: "troquelada",
         material: "papel",
         color: "blanco",
@@ -30,7 +30,7 @@ export const products = [
         id: 3,
         name: "Bolsa Kraft Pequeña Manija Rizo",
         price: 210000,
-        image: "../public/img/bolsa-rizo-marron.jpg", // AJUSTA ESTA RUTA DE IMAGEN
+        image: "/frontend/assets/img/bolsas-papel/bolsa-de-papel-numero-2-kraft-negra-alfa-bolsas.png", // AJUSTA ESTA RUTA DE IMAGEN
         tipo: "manija-en-cinta",
         material: "papel",
         color: "marron",
@@ -41,7 +41,7 @@ export const products = [
         id: 4,
         name: "Bolsa Negra Premium con Manija",
         price: 520000,
-        image: "../public/img/bolsa-negra-manija.jpg", // AJUSTA ESTA RUTA DE IMAGEN
+        image: "/frontend/assets/img/bolsas-papel/bolsa-de-papel-numero-3-kraft-marron-alfa-bolsas.png", // AJUSTA ESTA RUTA DE IMAGEN
         tipo: "con-manija",
         material: "papel",
         color: "negro",
@@ -52,7 +52,7 @@ export const products = [
         id: 5,
         name: "Bolsa Troquelada Color",
         price: 315000,
-        image: "../public/img/bolsa-troquelada-roja.jpg", // AJUSTA ESTA RUTA DE IMAGEN
+        image: "/frontend/assets/img/bolsas-papel/bolsa-de-papel-numero-1-kraft-marron-alfa-bolsas.png", // AJUSTA ESTA RUTA DE IMAGEN
         tipo: "troquelada",
         material: "polipropileno", // Ejemplo para probar el filtro de Material
         color: "rojo",

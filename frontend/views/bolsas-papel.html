@@ -13,6 +13,7 @@
     
     <!-- Estilos -->
     <link rel="stylesheet" href="/frontend/assets/estilos.css">
+    <link rel="stylesheet" href="/frontend/assets/carrito.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -58,16 +59,16 @@
                 </button>
             </form>
 
-            <!-- Login -->
-            <a href="/login" class="tool tool--login" aria-label="Iniciar sesión">
-                <i class="fa-regular fa-user" aria-hidden="true"></i>
-            </a>
+        <!-- Login -->
+        <a href="/frontend/views/login.html" class="tool tool--login" aria-label="Iniciar sesión">
+            <i class="fa-regular fa-user" aria-hidden="true"></i>
+        </a>
 
-            <!-- Carrito -->
-            <a href="/carrito" class="tool tool--cart" aria-label="Ver carrito de compras">
-                <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-                <span class="cart-count" aria-label="Productos en carrito">0</span>
-            </a>
+        <!-- Carrito - ACTUALIZADO -->
+        <button id="btnCarrito" class="tool tool--cart" aria-label="Ver carrito de compras" style="background: none; border: none; cursor: pointer; color: inherit; font-size: inherit;">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            <span class="cart-count" id="carritoContador" aria-label="Productos en carrito">0</span>
+        </button>
         </div>
 
         <!-- Barra de navegación principal -->
@@ -335,11 +336,63 @@
 
     <!-- Scripts -->
     <script src="/frontend/public/main.js" defer></script>
+
+    <!-- IMPORTANTE: Carrito debe cargarse ANTES que los productos -->
+    <script src="/frontend/public/carrito.js"></script>
+
+    <!-- Scripts de productos -->
     <script src="/frontend/public/productos-recomendados.js"></script>
     <script src="/frontend/public/marcas-slider.js"></script>
     <script src="/frontend/public/filtros.js"></script>
     <script src="/frontend/public/productsData.js"></script>
     <script type="module" src="/frontend/public/productPaperBags.js"></script>
     <script src="/frontend/public/contactForm.js"></script>
+    <script src="/frontend/public/carrito.js"></script>
+
+    <!-- AGREGAR: Panel del carrito y overlay -->
+    <!-- Panel lateral del carrito -->
+    <div id="panelCarrito" class="panel-carrito">
+        <div class="panel-carrito-content">
+            <!-- Header -->
+            <div class="carrito-header">
+                <h2>Carrito de compras</h2>
+                <button id="btnCerrarCarrito" class="btn-cerrar-panel">&times;</button>
+            </div>
+            
+            <!-- Lista de productos -->
+            <div id="carritoProductos" class="carrito-productos">
+                <div class="carrito-vacio">
+                    <div class="carrito-vacio-icon">🛒</div>
+                    <p>Esto está muy solo...</p>
+                    <button class="btn-primary" onclick="cerrarCarrito()">¡Vamos a comprar!</button>
+                </div>
+            </div>
+            
+            <!-- Footer con totales -->
+            <div class="carrito-footer">
+                <div class="carrito-totales">
+                    <div class="total-row">
+                        <span>Subtotal</span>
+                        <span id="carritoSubtotal">$ 0</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Envío</span>
+                        <span id="carritoEnvio">Calculado en checkout</span>
+                    </div>
+                    <div class="total-row total-final">
+                        <span>Total</span>
+                        <span id="carritoTotal">$ 0</span>
+                    </div>
+                </div>
+                
+                <button id="btnIrAPagar" class="btn-pagar" disabled>
+                    🛒 ¡Vamos a pagar! - <span id="totalPagar">$0</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay oscuro -->
+    <div id="carritoOverlay" class="carrito-overlay"></div>
 </body>
 </html>

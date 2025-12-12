@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de búsqueda | ALFA BOLSAS</title>
+    <link rel="stylesheet" href="/frontend/assets/estilos.css">
+    <link rel="stylesheet" href="/frontend/assets/search-suggestions.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- INCLUYE TU HEADER AQUÍ -->
+    
+    <main class="search-results-page">
+        <div class="container">
+            <!-- Breadcrumbs -->
+            <nav class="breadcrumbs" aria-label="breadcrumb">
+                <a href="/frontend/views/index.html">Inicio</a> / 
+                <span>Resultados de búsqueda</span>
+            </nav>
+            
+            <!-- Header de resultados -->
+            <div class="results-header">
+                <h1>Resultados de búsqueda</h1>
+                <p class="search-query">
+                    Buscaste: <strong id="searchTerm"></strong>
+                </p>
+                <p class="results-count" id="resultsCount">0 productos encontrados</p>
+            </div>
+            
+            <!-- Grid de productos -->
+            <div id="resultsGrid" class="product-grid">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Buscando productos...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- INCLUYE TU FOOTER AQUÍ -->
+    
+    <script src="/frontend/public/buscador-global.js"></script>
+    <script src="/frontend/public/resultados-busqueda.js"></script>
+</body>
+</html>
+
+<style>
+.search-results-page {
+    min-height: 60vh;
+    padding: 40px 0;
+}
+
+.results-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.results-header h1 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.search-query {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.search-query strong {
+    color: #FFC107;
+}
+
+.results-count {
+    font-size: 14px;
+    color: #999;
+}
+
+.loading {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+}
+
+.loading i {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.no-results i {
+    font-size: 64px;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.no-results h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: #666;
+}
+
+.no-results p {
+    color: #999;
+    margin-bottom: 24px;
+}
+</style>

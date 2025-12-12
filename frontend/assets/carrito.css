@@ -1,0 +1,330 @@
+/* ===== ESTILOS DEL CARRITO DE COMPRAS ===== */
+/* Agregar a tu archivo CSS principal o crear carrito.css */
+
+/* Ajustes para el botón del carrito en navbar */
+.tool--cart {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contador de productos en el carrito */
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #F44336;
+    color: white;
+    border-radius: 50%;
+    min-width: 20px;
+    height: 20px;
+    display: none; /* Se mostrará con JS cuando haya productos */
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 0 4px;
+}
+
+/* Overlay oscuro de fondo */
+.carrito-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.carrito-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Panel lateral del carrito */
+.panel-carrito {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 500px;
+    height: 100vh;
+    background: white;
+    z-index: 999;
+    transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.panel-carrito.active {
+    right: 0;
+}
+
+.panel-carrito-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header del carrito */
+.carrito-header {
+    padding: 24px;
+    border-bottom: 2px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFC107;
+    flex-shrink: 0;
+}
+
+.carrito-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #000;
+    font-weight: 700;
+}
+
+.btn-cerrar-panel {
+    background: none;
+    border: none;
+    font-size: 36px;
+    cursor: pointer;
+    color: #000;
+    transition: transform 0.3s ease;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.btn-cerrar-panel:hover {
+    transform: rotate(90deg);
+}
+
+/* Lista de productos en el carrito */
+.carrito-productos {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+/* Carrito vacío */
+.carrito-vacio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    color: #666;
+}
+
+.carrito-vacio-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    opacity: 0.3;
+}
+
+.carrito-vacio p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #999;
+}
+
+.btn-primary {
+    background: #FFC107;
+    color: #000;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #FFA000;
+    transform: translateY(-2px);
+}
+
+/* Items del carrito */
+.carrito-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.3s ease;
+}
+
+.carrito-item:hover {
+    background: #fafafa;
+}
+
+.carrito-item-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #f0f0f0;
+    flex-shrink: 0;
+}
+
+.carrito-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.carrito-item-nombre {
+    font-weight: 600;
+    color: #000;
+    font-size: 15px;
+}
+
+.carrito-item-sku {
+    font-size: 12px;
+    color: #999;
+}
+
+.carrito-item-precio {
+    font-size: 16px;
+    font-weight: 700;
+    color: #FFC107;
+}
+
+.carrito-item-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.btn-cantidad {
+    background: #f0f0f0;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-cantidad:hover {
+    background: #FFC107;
+    color: #000;
+}
+
+.cantidad-valor {
+    min-width: 30px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.btn-eliminar {
+    background: #ffebee;
+    color: #f44336;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-left: auto;
+}
+
+.btn-eliminar:hover {
+    background: #f44336;
+    color: white;
+}
+
+/* Footer con totales */
+.carrito-footer {
+    padding: 24px;
+    border-top: 2px solid #f0f0f0;
+    background: white;
+    flex-shrink: 0;
+}
+
+.carrito-totales {
+    margin-bottom: 20px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 15px;
+    color: #666;
+}
+
+.total-final {
+    border-top: 2px solid #f0f0f0;
+    padding-top: 16px;
+    margin-top: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+}
+
+/* Botón de pagar */
+.btn-pagar {
+    width: 100%;
+    background: #FFC107;
+    color: #000;
+    border: none;
+    padding: 18px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-pagar:hover:not(:disabled) {
+    background: #FFA000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+}
+
+.btn-pagar:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .panel-carrito {
+        max-width: 100%;
+    }
+    
+    .carrito-item-img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .carrito-header h2 {
+        font-size: 20px;
+    }
+}
+
+/* Evitar scroll del body cuando el carrito está abierto */
+body.carrito-abierto {
+    overflow: hidden;
+}

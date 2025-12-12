@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somos tu solución en: Bolsas, Cajas y publicidad | ALFA BOLSAS</title>
+    <meta name="description" content="En ALFA BOLSAS, somos tu solución ecológica en bolsas de papel, tela, plástico biodegradable, sobres de papel, cajas y publicidad.">
+    <meta name="keywords" content="Bolsas de papel, Bolsas de tela, Bolsas de plástico biodegradable, Sobres de papel, Cajas, Publicidad, Soluciones ecológicas, ALFA BOLSAS, bolsas en bucaramanga, bolsas para personalizar, bolsas con mi logo, bolsas ecologicas en bucaramanga">
+    
+    <!-- Preconnect para optimizar carga de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="/frontend/assets/estilos.css">
+    <link rel="stylesheet" href="/frontend/assets/carrito.css">
+    <link rel="stylesheet" href="/frontend/assets/checkout.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="checkout-container">
+        <!-- Logo en el header -->
+        <div class="checkout-header">
+            <img src="../assets/img/logo-alfa-bolsas.webp" alt="ALFA BOLSAS" class="checkout-logo" href="/frontend/views/index.html">
+        </div>
+
+        <div class="checkout-grid">
+            <!-- COLUMNA IZQUIERDA: Formulario -->
+            <div class="checkout-form">
+                <h1>Checkout</h1>
+
+                <form id="formCheckout">
+                    <!-- CONTACTO -->
+                    <section class="form-section">
+                        <h2>Contacto</h2>
+                        <div class="form-group">
+                            <label for="correo">Correo electrónico</label>
+                            <input type="email" id="correo" name="correo" required>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <span>Envíame novedades y ofertas por correo electrónico</span>
+                            </label>
+                        </div>
+                    </section>
+
+                    <!-- ENTREGA -->
+                    <section class="form-section">
+                        <h2>Entrega</h2>
+                        
+                        <div class="form-group">
+                            <label for="pais">País</label>
+                            <select id="pais" name="pais" required>
+                                <option value="Colombia" selected>Colombia</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="apellido">Apellidos</label>
+                                <input type="text" id="apellido" name="apellido" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="direccion">Dirección</label>
+                            <input type="text" id="direccion" name="direccion" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="codigoPostal">Código postal</label>
+                                <input type="text" id="codigoPostal" name="codigoPostal">
+                            </div>
+                            <div class="form-group">
+                                <label for="ciudad">Ciudad</label>
+                                <input type="text" id="ciudad" name="ciudad" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="departamento">Departamento</label>
+                                <input type="text" id="departamento" name="departamento" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono (opcional)</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" id="guardarInfo" name="guardarInfo">
+                                <span>Guardar mi información y consultar más rápidamente la próxima vez</span>
+                            </label>
+                        </div>
+                    </section>
+
+                    <!-- TRANSPORTADORAS -->
+                    <section class="form-section">
+                        <h2>Transportadoras</h2>
+                        <div class="transportadoras">
+                            <img src="/frontend/assets/img/transportadoras/transportadora-envia-aliado-estrategico-para-alfa-bolsas.webp" alt="Envia">
+                            <img src="/frontend/assets/img/transportadoras/transportadora-interrapidisimo-aliado-estrategico-para-alfa-bolsas.webp" alt="Interrapidisimo">
+                            <img src="/frontend/assets/img/transportadoras/transportadora-trasladarc-aliado-estrategico-para-alfa-bolsas.webp" alt="Trasladarc">
+                        </div>
+                        <p class="info-text">
+                            El servicio de transportadora, está sujeto a disponibilidad y el valor del envío 
+                            está sujeto a la cobertura que tengan estas en cada ciudad o municipio.
+                        </p>
+                    </section>
+
+                    <!-- PAGO -->
+                    <section class="form-section">
+                        <h2>Pago</h2>
+                        <p class="info-text">Guardar mi información y consultar más rápidamente la próxima vez</p>
+
+                        <!-- Tarjeta de crédito/débito -->
+                        <div class="payment-method">
+                            <label class="payment-method-label">
+                                <input type="radio" name="metodoPago" value="tarjeta" checked>
+                                <span>Tarjeta de débito o crédito</span>
+                                <div class="card-icons">
+                                    <span>💳</span>
+                                    <span>💳</span>
+                                    <span>💳</span>
+                                </div>
+                            </label>
+                            
+                            <div class="payment-details" id="detallesTarjeta">
+                                <div class="form-group">
+                                    <label for="numeroTarjeta">Número de tarjeta</label>
+                                    <input type="text" id="numeroTarjeta" name="numeroTarjeta" maxlength="19" placeholder="1234 5678 9012 3456">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="fechaVencimiento">Fecha de vencimiento</label>
+                                        <input type="text" id="fechaVencimiento" name="fechaVencimiento" placeholder="MM / AA" maxlength="7">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="codigoSeguridad">Código de seguridad</label>
+                                        <input type="text" id="codigoSeguridad" name="codigoSeguridad" placeholder="CVV" maxlength="4">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nombreTitular">Nombre del titular</label>
+                                    <input type="text" id="nombreTitular" name="nombreTitular" placeholder="Nombre como aparece en la tarjeta">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PSE -->
+                        <div class="payment-method">
+                            <label class="payment-method-label">
+                                <input type="radio" name="metodoPago" value="pse">
+                                <span>PSE</span>
+                            </label>
+                        </div>
+
+                        <!-- Otro medio de pago -->
+                        <div class="payment-method">
+                            <label class="payment-method-label">
+                                <input type="radio" name="metodoPago" value="otro">
+                                <span>Otro medio de pago</span>
+                            </label>
+                        </div>
+                    </section>
+
+                    <!-- Botón de finalizar -->
+                    <button type="submit" class="btn-finalizar" id="btnFinalizar">
+                        Finalizar el pedido
+                    </button>
+
+                    <!-- Links del footer -->
+                    <div class="checkout-footer-links">
+                        <a href="#">Políticas de reembolso</a>
+                        <a href="#">Términos y condiciones</a>
+                        <a href="#">Contáctanos</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- COLUMNA DERECHA: Resumen del pedido -->
+            <div class="checkout-sidebar">
+                <div class="order-summary">
+                    <h2>Resumen del pedido</h2>
+
+                    <!-- Lista de productos -->
+                    <div id="resumenProductos" class="summary-products">
+                        <!-- Los productos se cargan dinámicamente -->
+                    </div>
+
+                    <!-- Código de descuento -->
+                    <div class="discount-code">
+                        <input type="text" id="codigoDescuento" placeholder="Código de descuento">
+                        <button type="button" id="btnAplicarDescuento">Aplicar</button>
+                    </div>
+
+                    <!-- Totales -->
+                    <div class="summary-totals">
+                        <div class="total-row">
+                            <span>Subtotal (# de productos)</span>
+                            <span id="resumenSubtotal">$ 00.000</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Envío</span>
+                            <span id="resumenEnvio">Sujeto a la ciudad de envío</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Impuestos</span>
+                            <span id="resumenImpuestos">$ 00.000</span>
+                        </div>
+                        <div class="total-row total-final">
+                            <span>Total</span>
+                            <span id="resumenTotal">$ 00.000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/frontend/public/checkout.js"></script>
+</body>
+</html>

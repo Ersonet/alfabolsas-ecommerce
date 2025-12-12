@@ -8,53 +8,53 @@ const todosLosProductos = [
     descripcion: "Ancho x Alto + Fuelle (#3)",
     especificaciones: "25,5 x 33 + 13 Centímetros",
     precio: "00.000",
-    imagen: "https://via.placeholder.com/300x300/D4A574/FFFFFF?text=Bolsa+Papel",
+    imagen: "/frontend/assets/img/recomendados/bolsa-de-papel-numero-3-kraft-marron-alfa-bolsas.webp",
     url: "/producto/bolsa-papel-no3-marron"
   },
   {
     id: 2,
-    titulo: "Sobre Burbuja genérica - Negra",
+    titulo: "Sobre tipo burbuja - Negra",
     descripcion: "Contiene Adhesivo de seguridad",
     especificaciones: "17 x 22 Centímetros",
     precio: "00.000",
-    imagen: "https://via.placeholder.com/300x300/333333/FFFFFF?text=Sobre+Burbuja",
-    url: "/producto/sobre-burbuja-negra"
+    imagen: "/frontend/assets/img/recomendados/sobre-de-burbuja-negra-17x22cms-alfa-bolsas.webp",
+    url: "/frontend/views/sobre-burbuja-rosado.html"
   },
   {
     id: 3,
-    titulo: "Bolsa Tornasol",
+    titulo: "Sobre de papel #1",
     descripcion: "Ideal para empacar joyería.",
-    especificaciones: "7,5 x 12 Centímetros",
+    especificaciones: "20 x 25 + 5 Centímetros",
     precio: "00.000",
-    imagen: "https://via.placeholder.com/300x300/C8A2C8/FFFFFF?text=Bolsa+Tornasol",
+    imagen: "/frontend/assets/img/recomendados/sobre-de-papel-numero-1-de-alfa-bolsas.webp",
     url: "/producto/bolsa-tornasol"
   },
   {
     id: 4,
-    titulo: "Bolsa de tela ecológica - Verde",
+    titulo: "Bolsa de tela especial sin fuelle - Beige",
     descripcion: "Reutilizable y resistente",
-    especificaciones: "30 x 35 Centímetros",
+    especificaciones: "35 x 45 Centímetros",
     precio: "00.000",
-    imagen: "https://via.placeholder.com/300x300/4CAF50/FFFFFF?text=Bolsa+Tela",
-    url: "/producto/bolsa-tela-verde"
+    imagen: "/frontend/assets/img/recomendados/bolsa-de-tela-especial-sin-fuelle-beige-alfa-bolsas.webp",
+    url: "/frontend/views/bolsa-tela-especial-beige-35x45.html"
   },
   {
     id: 5,
-    titulo: "Caja de cartón corrugado",
-    descripcion: "Perfecta para envíos",
-    especificaciones: "20 x 15 x 10 Centímetros",
+    titulo: "Bolsa de papel con manija cinta",
+    descripcion: "Perfecta para accesorios y regalos pequeños",
+    especificaciones: "11 x 23 + 8 Centímetros",
     precio: "00.000",
-    imagen: "https://via.placeholder.com/300x300/8B6F47/FFFFFF?text=Caja",
-    url: "/producto/caja-carton-corrugado"
+    imagen: "/frontend/assets/img/recomendados/bolsas-de-papel-con-manija-cinta-11x23.webp",
+    url: "/frontend/views/bolsa-manija-cinta-11x23.html"
   },
   {
     id: 6,
-    titulo: "Bolsa plástica biodegradable",
+    titulo: "Bolsa plástica grafilada BIO - Amarilla",
     descripcion: "Amigable con el medio ambiente",
-    especificaciones: "40 x 50 Centímetros",
+    especificaciones: "20 x 30 Centímetros",
     precio: "00.000",
-    imagen: "https://via.placeholder.com/300x300/8B4789/FFFFFF?text=Bolsa+Plastica",
-    url: "/producto/bolsa-plastica-biodegradable"
+    imagen: "/frontend/assets/img/recomendados/bolsa-de-plastico-biodegradable-amarilla-alfa-bolsas.webp",
+    url: "/frontend/views/bolsa-plastica-grafilada-bio-amarilla-20x30.html"
   }
 ];
 

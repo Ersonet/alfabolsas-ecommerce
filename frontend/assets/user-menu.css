@@ -1,0 +1,196 @@
+/* ===== MENÚ DE USUARIO ===== */
+/* Agregar a tu archivo estilos.css o crear user-menu.css */
+
+.user-menu {
+    position: relative;
+    display: inline-flex;
+}
+
+.user-menu__trigger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.user-menu__trigger:hover {
+    background: rgba(255, 193, 7, 0.1);
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FFC107 0%, #FF9800 100%);
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.user-avatar--large {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+}
+
+.user-name-mobile {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    display: none;
+}
+
+/* Dropdown */
+.user-menu__dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 280px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.user-menu__dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Header del dropdown */
+.user-menu__header {
+    padding: 20px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.user-menu__info {
+    flex: 1;
+    min-width: 0;
+}
+
+.user-menu__name {
+    font-weight: 700;
+    font-size: 15px;
+    color: #000;
+    margin: 0 0 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-menu__email {
+    font-size: 12px;
+    color: #666;
+    margin: 0 0 6px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-menu__role {
+    display: inline-block;
+    background: #FFF3E0;
+    color: #E65100;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* Divider */
+.user-menu__divider {
+    height: 1px;
+    background: #f0f0f0;
+    margin: 0;
+}
+
+/* Lista de items */
+.user-menu__list {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+}
+
+.user-menu__list li {
+    margin: 0;
+}
+
+.user-menu__list a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.user-menu__list a:hover {
+    background: #fafafa;
+    color: #FFC107;
+}
+
+.user-menu__list a i {
+    width: 20px;
+    text-align: center;
+    color: #999;
+}
+
+/* Botón logout */
+.user-menu__logout {
+    width: 100%;
+    background: none;
+    border: none;
+    border-top: 1px solid #f0f0f0;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #f44336;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 0 0 12px 12px;
+}
+
+.user-menu__logout:hover {
+    background: #ffebee;
+}
+
+.user-menu__logout i {
+    width: 20px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .user-name-mobile {
+        display: inline-block;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-menu__dropdown {
+        width: calc(100vw - 40px);
+        right: -10px;
+    }
+}

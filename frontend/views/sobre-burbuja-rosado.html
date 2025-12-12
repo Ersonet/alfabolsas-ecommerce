@@ -3,44 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Burbuja genérica - Negra | ALFA BOLSAS</title>
-    <meta name="description" content="Sobre burbuja genérico de 17x22 cm con cinta adhesiva de seguridad. Protección compacta y eficiente para tus envíos.">
-    <link rel="stylesheet" href="/frontend/assets/estilos.css">
+    <title>Somos tu solución en: Bolsas, Cajas y publicidad | ALFA BOLSAS</title>
+    <meta name="description" content="En ALFA BOLSAS, somos tu solución ecológica en bolsas de papel, tela, plástico biodegradable, sobres de papel, cajas y publicidad.">
+    <meta name="keywords" content="Bolsas de papel, Bolsas de tela, Bolsas de plástico biodegradable, Sobres de papel, Cajas, Publicidad, Soluciones ecológicas, ALFA BOLSAS, bolsas en bucaramanga, bolsas para personalizar, bolsas con mi logo, bolsas ecologicas en bucaramanga">
+    
+    <!-- Preconnect para optimizar carga de fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="/frontend/assets/estilos.css">
+    <link rel="stylesheet" href="/frontend/assets/carrito.css">
+    <link rel="stylesheet" href="/frontend/assets/search-suggestions.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Sistema de autenticación para usuarios del ecommerce - con roles y permisos-->
+    <link rel="stylesheet" href="/frontend/assets/user-menu.css">
+    <script src="/frontend/public/auth-manager.js"></script>
 </head>
 <body>
-    <!-- Aquí va tu HEADER completo -->
-    
+    <!-- Header principal -->
+    <header class="site-header">
+        <!-- Barra superior de contacto -->
+        <div class="topbar">
+            <div class="container">
+                <div class="topbar__left">
+                    <p>Realizamos envíos a todo el país</p>
+                </div>
+                <div class="topbar__right">
+                    <a href="https://www.facebook.com/bolsasecologicasalfa" target="_blank" rel="noopener noreferrer" class="topbar__item" aria-label="Síguenos en Facebook">
+                        <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.instagram.com/bolsasecologicasalfa" target="_blank" rel="noopener noreferrer" class="topbar__item" aria-label="Síguenos en Instagram">
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://co.pinterest.com/bolsasecologicasalfa/" target="_blank" rel="noopener noreferrer" class="topbar__item" aria-label="Síguenos en Pinterest">
+                        <i class="fa-brands fa-pinterest" aria-hidden="true"></i>
+                    </a>
+                    <a href="mailto:alfabolsasbuc@gmail.com" class="topbar__item" aria-label="Envíanos un correo">
+                        <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN NAVBAR -->
+<nav>
+    <!-- Utilidades: logo + buscador + carrito + login -->
+    <div class="navbar__tools">
+        <!-- Logo de la empresa -->
+        <a href="/frontend/views/index.html" class="navbar__brand" aria-label="Inicio Alfa Bolsas S.A.S.">
+            <img src="/frontend/assets/img/logo-alfa-bolsas.webp" alt="Logo Alfa Bolsas S.A.S." width="100" height="100" loading="eager" />
+        </a>
+
+        <!-- Buscador -->
+        <form class="search" role="search" aria-label="Buscar productos">
+            <label for="search-input" class="sr-only">¿Qué bolsa ecológica estás buscando?</label>
+            <input id="search-input" type="search" placeholder="¿Qué bolsa ecológica estás buscando?" aria-label="Campo de búsqueda" />
+            <button type="submit" aria-label="Buscar productos">
+                <i class="fas fa-search" aria-hidden="true"></i>
+            </button>
+        </form>
+
+        <!-- Login -->
+        <a href="/frontend/views/login.html" class="tool tool--login" aria-label="Iniciar sesión">
+            <i class="fa-regular fa-user" aria-hidden="true"></i>
+        </a>
+
+        <!-- Carrito -->
+        <button id="btnCarrito" class="tool tool--cart" aria-label="Ver carrito de compras" style="background: none; border: none; cursor: pointer;">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            <span class="cart-count" id="carritoContador" aria-label="Productos en carrito">0</span>
+        </button>
+    </div>
+</nav>
+
+<!-- PANEL LATERAL DEL CARRITO -->
+<div id="panelCarrito" class="panel-carrito">
+    <div class="panel-carrito-content">
+        <!-- Header -->
+        <div class="carrito-header">
+            <h2>Carrito de compras</h2>
+            <button id="btnCerrarCarrito" class="btn-cerrar-panel">&times;</button>
+        </div>
+        
+        <!-- Lista de productos -->
+        <div id="carritoProductos" class="carrito-productos">
+            <!-- Estado inicial: carrito vacío -->
+            <div class="carrito-vacio">
+                <div class="carrito-vacio-icon">🛒</div>
+                <p>Esto está muy solo...</p>
+                <button class="btn-primary" onclick="cerrarCarrito()">¡Vamos a comprar!</button>
+            </div>
+        </div>
+        
+        <!-- Footer con totales -->
+        <div class="carrito-footer">
+            <div class="carrito-totales">
+                <div class="total-row">
+                    <span>Subtotal</span>
+                    <span id="carritoSubtotal">$ 0</span>
+                </div>
+                <div class="total-row">
+                    <span>Envío</span>
+                    <span id="carritoEnvio">Calculado en checkout</span>
+                </div>
+                <div class="total-row total-final">
+                    <span>Total</span>
+                    <span id="carritoTotal">$ 0</span>
+                </div>
+            </div>
+            
+            <button id="btnIrAPagar" class="btn-pagar" disabled>
+                🛒 ¡Vamos a pagar! - <span id="totalPagar">$0</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Overlay oscuro para cerrar el carrito -->
+<div id="carritoOverlay" class="carrito-overlay"></div>
+
+<!---Final del carrito-->
+
+        <!-- Barra de navegación principal -->
+        <div class="container navbar__inner">
+            <div class="navbar">
+                <!-- Botón hamburguesa (móvil) -->
+                <button class="navbar__toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="primary-nav">
+                    <span class="navbar__toggle-bar"></span>
+                    <span class="navbar__toggle-bar"></span>
+                    <span class="navbar__toggle-bar"></span>
+                </button>
+
+                <!-- Navegación principal -->
+                <nav id="primary-nav" class="navbar__nav" aria-label="Navegación principal">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="/frontend/views/index.html" class="nav__link">Inicio</a>
+                        </li>
+                        <li class="nav__item has-submenu">
+                            <button class="nav__link nav__link--button" aria-expanded="false" aria-controls="submenu-productos">
+                                Productos
+                                <span class="icon-chevron" aria-hidden="true">▾</span>
+                            </button>
+                            <ul id="submenu-productos" class="submenu" role="menu" aria-label="Categorías de productos">
+                                <li role="none">
+                                    <a role="menuitem" href="/frontend/views/bolsas-papel.html" class="submenu__link">Bolsas de Papel</a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/frontend/views/bolsas-tela.html" class="submenu__link">Bolsas de Tela</a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/frontend/views/bolsas-plasticas.html" class="submenu__link">Bolsas Plásticas</a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/frontend/views/cajas.html" class="submenu__link">Cajas</a>
+                                </li>
+                                <li role="none">
+                                    <a role="menuitem" href="/frontend/views/publicidad.html" class="submenu__link">Publicidad</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav__item">
+                            <a href="/frontend/views/nosotros.html" class="nav__link">Nosotros</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="/frontend/views/contactanos.html" class="nav__link">Contáctanos</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Botón de WhatsApp para cotizar -->
+            <a href="https://api.whatsapp.com/message/GVDKJSVF4L3GO1?autoload=1&app_absent=0" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="mi-boton-cotizar" 
+               aria-label="Cotizar productos por WhatsApp">
+                ¡Cotiza Ahora!
+            </a>
+        </div>
+    </header>
+   <!-- Final del header-->
+
+   <!-- Aquí inicia el producto de la página--> 
     <main class="producto-page">
         <!-- Contenedor principal del producto -->
         <div class="producto-container">
             <!-- Columna izquierda: Imagen del producto -->
             <div class="producto-galeria">
                 <div class="producto-galeria__principal">
-                    <img src="/frontend/assets/img/productos/sobre-burbuja-negra-principal.jpg" 
+                    <img src="/frontend/assets/img/productos/bolsa-burbuja-rosada-1.webp" 
                          alt="Sobre Burbuja genérica - Color negro 17x22 cm" 
                          id="imagen-principal"
                          width="500" 
                          height="500">
-                </div>
-                
-                <!-- Miniaturas (opcional para más imágenes) -->
-                <div class="producto-galeria__miniaturas">
-                    <img src="/frontend/assets/img/productos/sobre-burbuja-negra-1.jpg" 
-                         alt="Vista 1" 
-                         class="miniatura active"
-                         data-imagen="/frontend/assets/img/productos/sobre-burbuja-negra-principal.jpg">
-                    <img src="/frontend/assets/img/productos/sobre-burbuja-negra-2.jpg" 
-                         alt="Vista 2" 
-                         class="miniatura"
-                         data-imagen="/frontend/assets/img/productos/sobre-burbuja-negra-2.jpg">
-                    <img src="/frontend/assets/img/productos/sobre-burbuja-negra-3.jpg" 
-                         alt="Vista 3" 
-                         class="miniatura"
-                         data-imagen="/frontend/assets/img/productos/sobre-burbuja-negra-3.jpg">
                 </div>
             </div>
 
@@ -221,20 +380,210 @@
             </div>
         </section>
 
-        <!-- Productos relacionados -->
-        <section class="productos-relacionados">
-            <div class="productos-relacionados__container">
-                <h2 class="productos-relacionados__title">Productos relacionados:</h2>
-                <div class="productos-relacionados__grid" id="productos-relacionados-grid">
-                    <!-- Los productos se cargarán dinámicamente con JavaScript -->
+        <!--Inicio del Footer-->
+
+<!-- Footer principal -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <!-- Columna 1: Información de la empresa -->
+        <div class="footer-column footer-column--empresa">
+            <h3 class="footer-column__title">ALFA BOLSAS S.A.S</h3>
+            <p class="footer-empresa__nit">NIT: 901763591-3</p>
+            <p class="footer-empresa__direccion">
+                Avenida Quebrada Seca No. 33 - 44.<br>
+                Bucaramanga, Santander.
+            </p>
+        </div>
+
+        <!-- Separador vertical -->
+        <div class="footer-divider"></div>
+
+        <!-- Columna 2: Correo electrónico -->
+        <div class="footer-column footer-column--contacto">
+            <h4 class="footer-contacto__label">Correo Electrónico:</h4>
+            <a href="mailto:alfabolsasbuc@gmail.com" class="footer-contacto__email">
+                alfabolsasbuc@gmail.com
+            </a>
+        </div>
+
+        <!-- Separador vertical -->
+        <div class="footer-divider"></div>
+
+        <!-- Columna 3: Compra ahora -->
+        <div class="footer-column footer-column--compra">
+            <h3 class="footer-column__title">Compra ahora:</h3>
+            <p class="footer-compra__telefono">
+                <a href="tel:+573188637696">318 863 7696</a>
+            </p>
+            <p class="footer-compra__visita">
+                Agenda una visita:<br>
+                <span class="footer-compra__horario">3x9 0x9 x0x</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Sección de enlaces del footer -->
+    <div class="footer-links">
+        <div class="footer-links__container">
+            <!-- Productos -->
+            <div class="footer-links__column">
+                <h4 class="footer-links__title">Productos</h4>
+                <ul class="footer-links__list">
+                    <li><a href="/frontend/views/bolsas-papel.html">Bolsa Papel</a></li>
+                    <li><a href="/frontend/views/bolsas-tela.html">Bolsas Tela</a></li>
+                    <li><a href="/frontend/views/bolsas-plasticas.html">Bolsa Plástica</a></li>
+                    <li><a href="/frontend/views/cajas.html">Cajas</a></li>
+                    <li><a href="/frontend/views/publicidad.html">Publicidad</a></li>
+                </ul>
+            </div>
+
+            <!-- Nuestra Empresa -->
+            <div class="footer-links__column">
+                <h4 class="footer-links__title">Nuestra Empresa</h4>
+                <ul class="footer-links__list">
+                    <li><a href="/frontend/views/nosotros.html">¿Quiénes somos?</a></li>
+                    <li><a href="/frontend/views/contactanos.html">Contáctanos</a></li>
+                </ul>
+            </div>
+
+            <!-- Nuestras Políticas -->
+            <div class="footer-links__column">
+                <h4 class="footer-links__title">Nuestras Políticas</h4>
+                <ul class="footer-links__list">
+                    <li><a href="/politicas-envio">Políticas de envío</a></li>
+                    <li><a href="/politicas-cambio">Políticas de cambio</a></li>
+                    <li><a href="/politica-privacidad">Política de privacidad</a></li>
+                    <li><a href="/terminos-condiciones">Términos y condiciones</a></li>
+                    <li><a href="/devuelve-pedido">Devuelve tu pedido</a></li>
+                    <li><a href="/politica-cookies">Política de cookies</a></li>
+                </ul>
+            </div>
+
+            <!-- Compra Online -->
+            <div class="footer-links__column">
+                <h4 class="footer-links__title">Compra Online</h4>
+                <ul class="footer-links__list">
+                    <li><a href="/medios-pago">Medios de pago</a></li>
+                    <li><a href="/seguridad">Seguridad</a></li>
+                    <li><a href="/entregas-devoluciones">Entregas y devoluciones</a></li>
+                    <li><a href="/ayuda">Ayuda</a></li>
+                </ul>
+                <div class="footer-contacto-adicional">
+                    <h5 class="footer-contacto-adicional__title">Contáctanos:</h5>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/bolsasecologicasalfa" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/bolsasecologicasalfa" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://co.pinterest.com/bolsasecologicasalfa/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+                            <i class="fa-brands fa-pinterest"></i>
+                        </a>
+                        <a href="mailto:alfabolsasbuc@gmail.com" aria-label="Correo">
+                            <i class="fa-regular fa-envelope"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </section>
+
+            <!-- Rastreo de pedido -->
+            <div class="footer-links__column">
+                <h4 class="footer-links__title">Rastrea tu pedido</h4>
+                <ul class="footer-links__list">
+                    <li><a href="https://www.envia.co/rastreo" target="_blank" rel="noopener noreferrer">Envía</a></li>
+                    <li><a href="https://interrapidisimo.com/sigue-tu-envio/rastreo" target="_blank" rel="noopener noreferrer">Inter rapidísimo</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra de copyright -->
+    <div class="footer-bottom">
+        <div class="footer-bottom__container">
+            <p class="footer-bottom__text">
+                Diseñada y desarrollada con 💛 por: 
+                <a href="https://www.linkedin.com/in/hernandoserrano/" target="_blank" rel="noopener noreferrer">
+                    <strong>Jefferson Hernando Serrano</strong>
+                </a>
+            </p>
+            <p class="footer-bottom__copyright">
+                © 2025 ALFA BOLSAS S.A.S. Todos los Derechos reservados
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!--Final del footer-->
+
+
     </main>
 
-    <!-- Aquí va tu FOOTER completo -->
+        <!-- Aquí va tu FOOTER completo -->
+         
+    <!-- Scripts base -->
+    <script src="/frontend/public/main.js"></script>
 
-    <script src="/frontend/public/main.js" defer></script>
-    <script src="/frontend/public/producto.js" defer></script>
+    <!-- Sistema de carrito (DEBE cargar ANTES que producto.js) -->
+    <script src="/frontend/public/carrito.js"></script>
+
+    <!-- Buscador global -->
+    <script src="/frontend/public/buscador-global.js"></script>
+
+    <!-- Sistema de autenticación -->
+    <script src="/frontend/public/auth-manager.js"></script>
+
+    <!-- Página de producto (DESPUÉS del carrito) -->
+    <script src="/frontend/public/producto.js"></script>
+    
+
+    <!-- Otros scripts -->
+    <script src="/frontend/public/marcas-slider.js"></script>
+
+    <!-- AGREGAR: Panel del carrito y overlay -->
+    <!-- Panel lateral del carrito -->
+    <div id="panelCarrito" class="panel-carrito">
+        <div class="panel-carrito-content">
+            <!-- Header -->
+            <div class="carrito-header">
+                <h2>Carrito de compras</h2>
+                <button id="btnCerrarCarrito" class="btn-cerrar-panel">&times;</button>
+            </div>
+            
+            <!-- Lista de productos -->
+            <div id="carritoProductos" class="carrito-productos">
+                <div class="carrito-vacio">
+                    <div class="carrito-vacio-icon">🛒</div>
+                    <p>Esto está muy solo...</p>
+                    <button class="btn-primary" onclick="cerrarCarrito()">¡Vamos a comprar!</button>
+                </div>
+            </div>
+            
+            <!-- Footer con totales -->
+            <div class="carrito-footer">
+                <div class="carrito-totales">
+                    <div class="total-row">
+                        <span>Subtotal</span>
+                        <span id="carritoSubtotal">$ 0</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Envío</span>
+                        <span id="carritoEnvio">Calculado en checkout</span>
+                    </div>
+                    <div class="total-row total-final">
+                        <span>Total</span>
+                        <span id="carritoTotal">$ 0</span>
+                    </div>
+                </div>
+                
+                <button id="btnIrAPagar" class="btn-pagar" disabled>
+                    🛒 ¡Vamos a pagar! - <span id="totalPagar">$0</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay oscuro -->
+    <div id="carritoOverlay" class="carrito-overlay"></div>
 </body>
 </html>

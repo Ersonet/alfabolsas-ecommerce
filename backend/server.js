@@ -13,6 +13,7 @@ const path = require("path");
 const Usuario = require("./models/Usuario");
 const Producto = require("./models/Producto");
 const Pedido = require("./models/Pedido");
+const ClientePedido = require("./models/Cliente");
 
 const app = express();
 
@@ -199,10 +200,10 @@ app.get("/usuarios/me", verificarToken, async (req, res) => {
 
 // ===== RUTAS DE PRODUCTOS =====
 
-// Crear producto (solo admin)
+// Crear producto (solo desarrollador y owner)
 app.post("/productos", verificarToken, async (req, res) => {
   try {
-    if (req.usuario.rol !== 'admin') {
+    if (req.usuario.rol !== 'desarrollador' && req.usuario.rol !== 'owner') {
       return res.status(403).json({ error: 'No tienes permisos' });
     }
     
@@ -235,6 +236,30 @@ app.get("/productos/:id", async (req, res) => {
     res.json(producto);
   } catch (error) {
     res.status(500).json({ error: error.message });
+  }
+});
+
+// Actualizar producto (solo desarrollador)
+app.put("/productos/:id", verificarToken, async (req, res) => {
+  try {
+    if (req.usuario.rol !== 'desarrollador' && req.usuario.rol !== 'owner') {
+      return res.status(403).json({ error: 'No tienes permisos' });
+    }
+    
+    const productoActualizado = await Producto.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true, runValidators: true }
+    );
+    
+    if (!productoActualizado) {
+      return res.status(404).json({ error: 'Producto no encontrado' });
+    }
+    
+    console.log('✅ Producto actualizado:', productoActualizado.nombre);
+    res.json(productoActualizado);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
 });
 
@@ -294,6 +319,128 @@ app.get("/pedidos/:id", verificarToken, async (req, res) => {
   }
 });
 
+// ===== RUTAS DE CARRITO/PEDIDOS DE CLIENTES =====
+
+// Guardar carrito (cliente público)
+app.post("/carrito/guardar", async (req, res) => {
+  console.log('🛒 Guardando carrito:', req.body);
+  
+  try {
+    const nuevoPedido = new ClientePedido(req.body);
+    await nuevoPedido.save();
+    
+    console.log('✅ Carrito guardado:', nuevoPedido._id);
+    
+    res.status(201).json({
+      mensaje: 'Carrito guardado exitosamente',
+      pedidoId: nuevoPedido._id,
+      pedido: nuevoPedido.obtenerResumen()
+    });
+    
+  } catch (error) {
+    console.error('❌ Error al guardar carrito:', error);
+    res.status(500).json({
+      error: 'Error al guardar el carrito',
+      detalle: error.message
+    });
+  }
+});
+
+// Obtener pedido por ID (público)
+app.get("/carrito/:id", async (req, res) => {
+  try {
+    const pedido = await ClientePedido.findById(req.params.id).populate('productos.productoId');
+    
+    if (!pedido) {
+      return res.status(404).json({ error: 'Pedido no encontrado' });
+    }
+    
+    res.json(pedido);
+    
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Actualizar estado de pago
+app.post("/carrito/:id/pago", async (req, res) => {
+  try {
+    const pedido = await ClientePedido.findById(req.params.id);
+    
+    if (!pedido) {
+      return res.status(404).json({ error: 'Pedido no encontrado' });
+    }
+    
+    // Actualizar método de pago
+    pedido.metodoPago = {
+      tipo: req.body.tipo || 'pendiente',
+      detalles: req.body.detalles,
+      referenciaPago: req.body.referenciaPago,
+      fechaPago: req.body.exitoso ? new Date() : null
+    };
+    
+    // Cambiar estado según resultado
+    if (req.body.exitoso) {
+      await pedido.cambiarEstado('pago_completado', 'Sistema', 'Pago procesado exitosamente');
+    } else {
+      await pedido.cambiarEstado('pago_pendiente', 'Sistema', 'Intento de pago fallido');
+    }
+    
+    console.log('✅ Estado de pago actualizado:', pedido._id);
+    
+    res.json({
+      mensaje: 'Estado actualizado',
+      pedido: pedido.obtenerResumen()
+    });
+    
+  } catch (error) {
+    console.error('❌ Error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// NUEVO: Actualizar datos del cliente (para auto-guardado)
+app.patch("/carrito/:id/actualizar", async (req, res) => {
+  try {
+    const pedido = await ClientePedido.findByIdAndUpdate(
+      req.params.id,
+      { $set: req.body },
+      { new: true, runValidators: false }
+    );
+    
+    if (!pedido) {
+      return res.status(404).json({ error: 'Pedido no encontrado' });
+    }
+    
+    res.json({ mensaje: 'Datos actualizados' });
+    
+  } catch (error) {
+    console.error('❌ Error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Listar pedidos de clientes (protegido - solo owner/desarrollador)
+app.get("/admin/pedidos-clientes", verificarToken, async (req, res) => {
+  try {
+    if (req.usuario.rol !== 'owner' && req.usuario.rol !== 'desarrollador') {
+      return res.status(403).json({ error: 'No tienes permisos' });
+    }
+    
+    const { estado, limite = 50 } = req.query;
+    const query = estado ? { estado } : {};
+    
+    const pedidos = await ClientePedido.find(query)
+      .sort({ createdAt: -1 })
+      .limit(parseInt(limite));
+    
+    res.json(pedidos.map(p => p.obtenerResumen()));
+    
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // ===== RUTA DE PRUEBA =====
 app.get("/", (req, res) => {
   res.json({ 
@@ -307,6 +454,14 @@ app.get("/", (req, res) => {
     }
   });
 });
+
+const path = require('path');
+
+// Servir archivos estáticos (IMPORTANTE)
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// Agregar ruta de upload
+app.use('/api', require('./routes/upload'));
 
 // ===== INICIAR SERVIDOR =====
 const PORT = process.env.PORT || 3000;

@@ -1,7 +1,7 @@
 /* ===== VARIABLES DE COLOR ===== */
 :root {
-    --primary-color: #2563eb;
-    --primary-dark: #1e40af;
+    --primary-color: #FBB039;
+    --primary-dark: #EDB148;
     --success-color: #10b981;
     --error-color: #ef4444;
     --background: #f3f4f6;
@@ -19,8 +19,8 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #FBB039 0%, #EDB148 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;

@@ -73,26 +73,3 @@ async function crearUsuarioAdmin() {
 
 // Ejecutar
 crearUsuarioAdmin();
-
-// ===== INSTRUCCIONES DE USO =====
-/*
-1. Edita los datos del usuario arriba (nombre, email, password, rol)
-2. Ejecuta: node crearAdmin.js
-3. Verifica en MongoDB Atlas que se creó correctamente
-4. Inicia sesión con ese email y contraseña
-5. IMPORTANTE: Cambia la contraseña después del primer login
-
-ROLES DISPONIBLES:
-- owner: Acceso total (dueña del negocio)
-- desarrollador: Gestión de productos y contenido (Jefferson)
-- asesora: Gestión de pedidos limitada
-- cliente: Solo compras
-
-Para crear múltiples usuarios, ejecuta este script varias veces
-cambiando los datos cada vez.
-
-PARA CREAR LA CUENTA DE LA DUEÑA:
-1. Descomenta el bloque de código de arriba
-2. Comenta el bloque del desarrollador
-3. Ejecuta: node crearAdmin.js
-*/
